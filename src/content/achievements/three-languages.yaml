@@ -1,0 +1,12 @@
+order: 2
+track: professional
+title:
+  en: Client projects in three languages
+  fr: Des projets clients en trois langues
+  es: Proyectos con clientes en tres idiomas
+detail:
+  en: Workshops, demos, training and support in Spanish, English and French.
+  fr: Ateliers, démos, formations et support en espagnol, en anglais et en français.
+  es: Talleres, demos, formación y soporte en español, inglés y francés.
+metric: '3'
+metricLabel: { en: working languages, fr: langues de travail, es: idiomas de trabajo }

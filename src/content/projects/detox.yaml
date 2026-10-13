@@ -1,0 +1,27 @@
+# Fuente: ~/PROYECTOS/APPS/APP-Detox (MIGRATION_PROGRESS.md).
+order: 1
+group: apps
+name: Detox
+tagline:
+  en: An iOS app to quit bad habits, one day at a time
+  fr: Une app iOS pour arrêter les mauvaises habitudes, un jour à la fois
+  es: Una app de iOS para dejar malos hábitos, día a día
+description:
+  en: >-
+    A native iOS app that counts the time since you quit each habit. Habits are fully customizable
+    (name, icon, colour and start date) and the profile tab shows your stats. Minimal, sports-inspired
+    design: huge bold numbers, a single red accent and thin lines.
+  fr: >-
+    Une app iOS native qui compte le temps écoulé depuis l'arrêt de chaque habitude. Les habitudes
+    sont entièrement personnalisables (nom, icône, couleur et date de début) et l'onglet profil
+    affiche les statistiques. Un design minimal d'inspiration sportive : de très grands chiffres, un
+    seul accent rouge et des lignes fines.
+  es: >-
+    Una app nativa de iOS que cuenta el tiempo desde que dejaste cada hábito. Los hábitos se
+    personalizan por completo (nombre, icono, color y fecha de inicio) y la pestaña de perfil muestra
+    las estadísticas. Diseño minimalista de inspiración deportiva: números enormes, un único acento
+    rojo y líneas finas.
+stack: [Swift, SwiftUI, SwiftData, iOS 17]
+status: in-progress
+year: 2026
+accent: '#C8102E'

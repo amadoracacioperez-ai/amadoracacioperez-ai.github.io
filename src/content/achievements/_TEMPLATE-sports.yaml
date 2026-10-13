@@ -1,0 +1,16 @@
+# PLANTILLA (el guion bajo inicial hace que no se cargue). Copia este fichero sin el "_" para
+# añadir un logro deportivo. Solo datos reales confirmados por Amador.
+order: 2
+track: sports
+period: 'AAAA'
+title:
+  en: 'Achievement title'
+  fr: 'Titre du jalon'
+  es: 'Título del hito'
+detail:
+  en: 'Race / competition, place, time.'
+  fr: 'Course / compétition, lieu, temps.'
+  es: 'Carrera / competición, lugar, marca.'
+metric: '00:00'
+metricLabel: { en: 'label', fr: 'libellé', es: 'etiqueta' }
+draft: true

@@ -1,0 +1,60 @@
+# Fuente: perfil_maestro.yaml (experience.esker). Título oficial en inglés en los tres idiomas.
+order: 1
+role: Professional Services Consultant
+org: Esker Ibérica
+location: { en: 'Madrid, Spain', fr: 'Madrid, Espagne', es: 'Madrid, España' }
+start: '2024-01'
+summary:
+  en: >-
+    I implement Esker's SaaS cloud solutions and integrate them with ERP systems (SAP, Oracle and
+    others) to automate Procure-to-Pay and Order-to-Cash processes.
+  fr: >-
+    Je mets en place les solutions SaaS cloud d'Esker et je les intègre aux ERP (SAP, Oracle, entre
+    autres) pour automatiser les processus Procure-to-Pay et Order-to-Cash.
+  es: >-
+    Implanto las soluciones SaaS en la nube de Esker y las integro con ERP (SAP, Oracle, entre otros)
+    para automatizar los procesos Procure-to-Pay y Order-to-Cash.
+highlights:
+  - en: >-
+      Implemented the three parts of Esker's Procure-to-Pay suite: accounts payable, purchasing /
+      eProcurement and the supplier portal.
+    fr: >-
+      Mise en place des trois volets de la suite Procure-to-Pay d'Esker : comptabilité fournisseurs,
+      achats / eProcurement et portail fournisseurs.
+    es: >-
+      Implantación de las tres partes de la suite Procure-to-Pay de Esker: cuentas a pagar, compras /
+      eProcurement y portal de proveedores.
+  - en: >-
+      Designed the integration with clients' ERP systems (data flows and data mappings), not only its
+      configuration.
+    fr: >-
+      Conception de l'intégration avec les ERP des clients (flux et mappings de données), au-delà de la
+      configuration.
+    es: >-
+      Diseño de la integración con los ERP de los clientes (flujos y mapeos de datos), no solo su
+      configuración.
+  - en: >-
+      Led client workshops, Fit-Gap analyses and functional specifications, and managed several
+      projects in parallel from planning to production.
+    fr: >-
+      Animation d'ateliers clients, analyses Fit-Gap et spécifications fonctionnelles ; pilotage de
+      plusieurs projets en parallèle, de la planification à la mise en production.
+    es: >-
+      Talleres con clientes, análisis Fit-Gap y especificaciones funcionales; gestión de varios
+      proyectos en paralelo, de la planificación a la puesta en producción.
+  - en: >-
+      Supported pre-sales with demos, proofs of concept and the technical sections of RFP/RFI responses.
+    fr: >-
+      Appui à l'avant-vente : démos, preuves de concept et volets techniques des réponses aux RFP/RFI.
+    es: >-
+      Apoyo a preventa con demos, pruebas de concepto y las partes técnicas de respuestas a RFP/RFI.
+  - en: >-
+      Worked with large multinationals and manufacturers in Spanish, English and French, including
+      N1/N2 support after go-live.
+    fr: >-
+      Travail avec de grands groupes internationaux et des industriels en espagnol, en anglais et en
+      français, y compris le support N1/N2 après la mise en production.
+    es: >-
+      Trabajo con grandes multinacionales e industriales en español, inglés y francés, incluido el
+      soporte N1/N2 tras la puesta en producción.
+tags: [SaaS, ERP, SAP, Oracle, P2P, O2C, E-invoicing, EDI, SQL, JavaScript, SSO, Salesforce]

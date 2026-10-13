@@ -1,0 +1,9 @@
+# Fuente: perfil_maestro.yaml (education.mba).
+order: 1
+degree:
+  en: Master of Business Administration (MBA)
+  fr: MBA (Master of Business Administration)
+  es: MBA (Máster en Administración de Empresas)
+institution: ThePower Business School
+start: '2021-08'
+end: '2022-08'

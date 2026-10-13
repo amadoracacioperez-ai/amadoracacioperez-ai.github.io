@@ -1,0 +1,13 @@
+order: 1
+track: professional
+period: 2024 –
+title:
+  en: Implemented Esker's full Procure-to-Pay suite
+  fr: Mise en place de toute la suite Procure-to-Pay d'Esker
+  es: Implantación de toda la suite Procure-to-Pay de Esker
+detail:
+  en: Accounts payable, purchasing / eProcurement and the supplier portal, integrated with ERP systems such as SAP and Oracle.
+  fr: Comptabilité fournisseurs, achats / eProcurement et portail fournisseurs, intégrés aux ERP comme SAP et Oracle.
+  es: Cuentas a pagar, compras / eProcurement y portal de proveedores, integrados con ERP como SAP y Oracle.
+metric: '3'
+metricLabel: { en: P2P modules, fr: modules P2P, es: módulos P2P }

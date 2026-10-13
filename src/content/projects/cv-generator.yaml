@@ -1,0 +1,25 @@
+# Fuente: ~/PROYECTOS/CVGENERATOR (README.md, PROGRESS.md) y perfil_maestro.yaml (projects).
+order: 2
+group: ai
+name: CVGENERATOR
+tagline:
+  en: A tailored CV and cover letter for every job offer
+  fr: Un CV et une lettre de motivation adaptés à chaque offre
+  es: Un CV y una carta de presentación adaptados a cada oferta
+description:
+  en: >-
+    Paste a job offer URL and get a one-page, ATS-friendly CV and a cover letter adapted to the role
+    and the company, in Spanish, English, French or Italian, plus a report of what changed. Every fact
+    comes from a verified master profile, and nothing is sent without my approval.
+  fr: >-
+    On colle l'URL d'une offre et on obtient un CV d'une page lisible par les ATS et une lettre adaptés
+    au poste et à l'entreprise, en espagnol, anglais, français ou italien, avec un rapport des
+    changements. Chaque information vient d'un profil maître vérifié, et rien ne part sans mon accord.
+  es: >-
+    Pegas la URL de una oferta y obtienes un CV de una página legible por los ATS y una carta adaptados
+    al puesto y a la empresa, en español, inglés, francés o italiano, con un informe de los cambios.
+    Cada dato sale de un perfil maestro verificado y no se envía nada sin mi visto bueno.
+stack: [Python, Jinja2, Chrome PDF, pytest, Claude Code]
+status: in-use
+year: 2026
+accent: '#8B5CF6'

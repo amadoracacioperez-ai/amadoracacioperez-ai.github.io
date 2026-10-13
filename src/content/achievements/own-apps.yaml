@@ -1,0 +1,13 @@
+order: 4
+track: professional
+period: 2023 –
+title:
+  en: Published my own mobile apps
+  fr: Publication de mes propres apps mobiles
+  es: Publicación de mis propias apps móviles
+detail:
+  en: On the App Store and Google Play, built end to end with Swift / SwiftUI and React Native.
+  fr: Sur l'App Store et Google Play, développées de bout en bout en Swift / SwiftUI et React Native.
+  es: En el App Store y Google Play, desarrolladas de principio a fin con Swift / SwiftUI y React Native.
+metric: '2023'
+metricLabel: { en: since, fr: depuis, es: desde }

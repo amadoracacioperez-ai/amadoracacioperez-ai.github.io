@@ -1,0 +1,12 @@
+order: 3
+track: professional
+title:
+  en: Three countries, one career
+  fr: Trois pays, un parcours
+  es: Tres países, una trayectoria
+detail:
+  en: Madrid, Dublin and now Paris.
+  fr: Madrid, Dublin et aujourd'hui Paris.
+  es: Madrid, Dublín y ahora París.
+metric: '3'
+metricLabel: { en: countries, fr: pays, es: países }

@@ -1,0 +1,28 @@
+# Fuente: ~/PROYECTOS/APPS/JUEGOS/Ojo (README.md).
+order: 2
+group: apps
+name: Ojo
+tagline:
+  en: A perception arcade game for iOS
+  fr: Un jeu d'arcade de perception pour iOS
+  es: Un arcade de percepción para iOS
+description:
+  en: >-
+    Every round shows a grid of identical tiles except one: tap the odd one out before time runs out.
+    The grid grows, the difference shrinks and the changing trait (lightness, hue, saturation,
+    rotation, size or corners) rotates every three rounds. Colours are generated and compared in
+    OKLab, so differences feel even. Includes a daily challenge.
+  fr: >-
+    Chaque manche affiche une grille de pièces identiques sauf une : il faut toucher l'intruse avant
+    la fin du temps. La grille grandit, la différence diminue et le trait qui change (luminosité,
+    teinte, saturation, rotation, taille ou coins) tourne toutes les trois manches. Les couleurs sont
+    générées et comparées en OKLab pour des écarts perçus de façon homogène. Avec un défi quotidien.
+  es: >-
+    Cada ronda muestra una cuadrícula de piezas idénticas menos una: hay que tocar la distinta antes
+    de que se acabe el tiempo. La cuadrícula crece, la diferencia se encoge y el rasgo que cambia
+    (luminosidad, tono, saturación, rotación, tamaño o esquinas) rota cada tres rondas. Los colores
+    se generan y comparan en OKLab para que las diferencias se perciban igual. Con reto diario.
+stack: [Swift, SwiftUI, OKLab, XcodeGen]
+status: in-progress
+year: 2026
+accent: '#22D3EE'

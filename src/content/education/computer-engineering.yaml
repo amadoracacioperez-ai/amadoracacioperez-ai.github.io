@@ -1,0 +1,9 @@
+# Fuente: perfil_maestro.yaml (education.computer-engineering). Sin notas (pendientes de confirmar).
+order: 2
+degree:
+  en: Bachelor's Degree in Computer Engineering
+  fr: Bachelor en ingénierie informatique (Grado espagnol, Bac+4)
+  es: Grado en Ingeniería Informática
+institution: Universidad Autónoma de Madrid
+start: '2015-09'
+end: '2020-09'

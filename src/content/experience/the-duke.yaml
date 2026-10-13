@@ -1,0 +1,22 @@
+# Fuente: perfil_maestro.yaml (experience.the-duke, LinkedIn).
+order: 3
+role: { en: Customer Service, fr: Service client, es: Atención al cliente }
+org: The Duke
+location: { en: 'Dublin, Ireland', fr: 'Dublin, Irlande', es: 'Dublín, Irlanda' }
+start: '2023-01'
+end: '2024-01'
+summary:
+  en: A year living and working in Dublin.
+  fr: Une année à vivre et à travailler à Dublin.
+  es: Un año viviendo y trabajando en Dublín.
+highlights:
+  - en: Managed bookings, inventory and customer service.
+    fr: Gestion des réservations, des stocks et du service client.
+    es: Gestión de reservas, inventario y atención al cliente.
+  - en: Recruited, trained and supervised staff.
+    fr: Recrutement, formation et encadrement du personnel.
+    es: Selección, formación y supervisión de personal.
+  - en: Prepared weekly sales reports.
+    fr: Préparation des rapports de ventes hebdomadaires.
+    es: Elaboración de informes semanales de ventas.
+tags: []

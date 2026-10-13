@@ -1,0 +1,28 @@
+# Fuente: ~/PROYECTOS/EDITOR (CLAUDE.md) y EDITOR-VIDEOS.
+order: 4
+group: ai
+name:
+  en: AI Reels editor
+  fr: Monteur de Reels IA
+  es: Editor de Reels con IA
+tagline:
+  en: An AI video editor and scriptwriter for Instagram Reels
+  fr: Un monteur vidéo et scénariste IA pour les Reels Instagram
+  es: Un editor de vídeo y guionista con IA para Reels de Instagram
+description:
+  en: >-
+    An agent built on Claude Code that turns raw footage into finished Reels: it plans the story,
+    cuts and assembles with FFmpeg, adds subtitles from transcriptions and keeps a clean, cinematic
+    look.
+  fr: >-
+    Un agent basé sur Claude Code qui transforme des rushs en Reels finalisés : il construit l'histoire,
+    coupe et assemble avec FFmpeg, ajoute des sous-titres à partir des transcriptions et garde un
+    style épuré et cinématographique.
+  es: >-
+    Un agente sobre Claude Code que convierte el material en bruto en Reels terminados: plantea la
+    historia, corta y monta con FFmpeg, añade subtítulos a partir de transcripciones y mantiene una
+    estética limpia y cinematográfica.
+stack: [Claude Code, FFmpeg, Python]
+status: prototype
+year: 2026
+accent: '#FBBF24'

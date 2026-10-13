@@ -1,0 +1,19 @@
+# Fuente: perfil_maestro.yaml (experience.dahi-jalcon, LinkedIn).
+order: 5
+role: { en: Sales Consultant, fr: Consultant commercial, es: Consultor comercial }
+org: Dahi Jalcon S.A.
+location: { en: 'Madrid, Spain', fr: 'Madrid, Espagne', es: 'Madrid, España' }
+start: '2019-01'
+end: '2020-01'
+summary:
+  en: >-
+    Sourced new international suppliers and handled international sales, coordinating clients,
+    shippers and shipping companies, customs clearance and shipping documents.
+  fr: >-
+    Recherche de nouveaux fournisseurs internationaux et ventes à l'international, avec la
+    coordination des clients, transitaires et compagnies maritimes, du dédouanement et des documents
+    d'expédition.
+  es: >-
+    Búsqueda de nuevos proveedores internacionales y ventas internacionales, coordinando clientes,
+    transitarios y navieras, despacho de aduanas y documentación de envío.
+compact: true

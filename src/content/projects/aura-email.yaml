@@ -1,0 +1,26 @@
+# Fuente: ~/PROYECTOS/AURA-EMAIL (README.md y PROGRESO.md).
+order: 1
+group: ai
+name: AURA Email
+tagline:
+  en: A personal Gmail assistant powered by Claude
+  fr: Un assistant Gmail personnel propulsé par Claude
+  es: Un asistente personal de Gmail con Claude
+description:
+  en: >-
+    Labels every email by sender, archives the noise, creates Gmail filters and, on demand, emails me
+    a summary of pending tasks sorted by urgency. Python does the bulk work through the Gmail API and
+    Claude makes the judgment calls. It took my inbox from 16,142 threads to 27.
+  fr: >-
+    Il étiquette chaque e-mail selon l'expéditeur, archive le bruit, crée des filtres Gmail et, à la
+    demande, m'envoie un résumé des tâches en attente triées par urgence. Python fait le gros du
+    travail via l'API Gmail et Claude prend les décisions. Ma boîte est passée de 16 142 fils à 27.
+  es: >-
+    Etiqueta cada correo según el remitente, archiva el ruido, crea filtros de Gmail y, cuando se lo
+    pido, me envía un resumen de tareas pendientes ordenadas por urgencia. Python hace el trabajo
+    pesado con la API de Gmail y Claude decide lo que requiere criterio. Mi bandeja pasó de 16.142
+    hilos a 27.
+stack: [Python, Gmail API, Claude Code]
+status: in-use
+year: 2026
+accent: '#5EEAD4'

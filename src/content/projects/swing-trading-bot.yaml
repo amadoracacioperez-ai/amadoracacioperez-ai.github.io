@@ -1,0 +1,34 @@
+# Fuente: ~/PROYECTOS/WARRENBUFFET (README.md, PROGRESS.md: fase 0 terminada, aún sin código).
+order: 5
+group: ai
+name:
+  en: Swing trading bot
+  fr: Bot de swing trading
+  es: Bot de swing trading
+tagline:
+  en: Rule-based, backtestable swing trading on large US stocks
+  fr: Du swing trading sur grandes actions américaines, fondé sur des règles testables
+  es: Swing trading en grandes acciones de EE. UU. con reglas que se pueden backtestear
+description:
+  en: >-
+    An experimental, long-only bot. Deterministic rules make every decision and have to beat buying
+    and holding the S&P 500 after costs. AI agents research, audit and write reports, but never place
+    orders. The plan: data, an honest out-of-sample backtest, paper trading, then a small real capital.
+  fr: >-
+    Un bot expérimental, uniquement à l'achat. Des règles déterministes prennent chaque décision et
+    doivent battre l'achat-conservation du S&P 500 après frais. Des agents d'IA cherchent, auditent et
+    rédigent des rapports, mais ne passent jamais d'ordres. Le plan : données, backtest honnête hors
+    échantillon, paper trading, puis un petit capital réel.
+  es: >-
+    Un bot experimental, solo en largo. Las decisiones las toman reglas deterministas que tienen que
+    batir a comprar y mantener el S&P 500 después de costes. Los agentes de IA investigan, auditan y
+    redactan informes, pero nunca envían órdenes. El plan: datos, un backtest honesto fuera de
+    muestra, paper trading y después un capital real pequeño.
+note:
+  en: Personal, educational project. Not financial advice.
+  fr: Projet personnel et éducatif. Pas un conseil financier.
+  es: Proyecto personal y educativo. No es asesoramiento financiero.
+stack: [Python, Backtesting, Claude Code]
+status: design
+year: 2026
+accent: '#34D399'

@@ -1,0 +1,26 @@
+# Fuente: ~/PROYECTOS/TECHNOSANIC (PROGRESS.txt, rutas de src/app, package.json). Sin datos de la empresa.
+order: 2
+group: web
+name: Technosanic
+tagline:
+  en: Invoicing and management web app, ready for Veri*Factu
+  fr: Une application web de facturation et de gestion, prête pour Veri*Factu
+  es: Una app web de facturación y gestión, preparada para Veri*Factu
+description:
+  en: >-
+    A web app to run a small business: quotes, delivery notes, invoices, expenses, cash flow, contacts
+    and users, with PDF documents. Built to comply with Spain's Veri*Factu e-invoicing rules: chained
+    invoice fingerprints, QR codes and submissions to the tax agency's test environment.
+  fr: >-
+    Une application web pour gérer une petite entreprise : devis, bons de livraison, factures,
+    dépenses, trésorerie, contacts et utilisateurs, avec des documents PDF. Conçue pour respecter la
+    norme espagnole de facturation Veri*Factu : empreintes chaînées des factures, QR codes et envois à
+    l'environnement de test de l'administration fiscale.
+  es: >-
+    Una app web para gestionar una pequeña empresa: presupuestos, albaranes, facturas, gastos, caja,
+    terceros y usuarios, con documentos en PDF. Preparada para cumplir Veri*Factu: huella encadenada
+    de las facturas, códigos QR y envíos al entorno de pruebas de la AEAT.
+stack: [Next.js, TypeScript, Prisma, PostgreSQL, React PDF, Docker]
+status: in-progress
+year: 2026
+accent: '#60A5FA'

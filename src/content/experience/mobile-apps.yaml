@@ -1,0 +1,29 @@
+# Fuente: perfil_maestro.yaml (experience.mobile-apps). Sin cifra de descargas.
+order: 2
+role:
+  en: Independent iOS & Android developer
+  fr: Développeur iOS et Android indépendant
+  es: Desarrollador independiente de iOS y Android
+org: { en: Own projects, fr: Projets personnels, es: Proyectos propios }
+start: '2023'
+summary:
+  en: >-
+    I design, build and publish my own apps on the App Store and Google Play, owning each one end to
+    end: concept, design, frontend and backend.
+  fr: >-
+    Je conçois, développe et publie mes propres applications sur l'App Store et Google Play, de bout
+    en bout : concept, design, frontend et backend.
+  es: >-
+    Diseño, desarrollo y publico mis propias apps en el App Store y Google Play, de principio a fin:
+    concepto, diseño, frontend y backend.
+highlights:
+  - en: Managed each app's roadmap and backlog, prioritizing features from idea to release.
+    fr: Gestion de la roadmap et du backlog de chaque app, en priorisant les fonctionnalités de l'idée à la sortie.
+    es: Gestión del roadmap y el backlog de cada app, priorizando funcionalidades de la idea al lanzamiento.
+  - en: Built with Swift / SwiftUI and React Native for iOS and Android.
+    fr: Développement en Swift / SwiftUI et React Native pour iOS et Android.
+    es: Desarrollo con Swift / SwiftUI y React Native para iOS y Android.
+  - en: Alongside the apps, I build AI-assisted tools and games (see Projects).
+    fr: En parallèle des apps, je crée des outils assistés par l'IA et des jeux (voir Projets).
+    es: Además de las apps, creo herramientas con IA y juegos (ver Proyectos).
+tags: [Swift, SwiftUI, React Native, iOS, Android]

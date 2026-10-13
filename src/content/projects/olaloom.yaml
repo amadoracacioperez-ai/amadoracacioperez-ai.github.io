@@ -1,0 +1,25 @@
+# Fuente: ~/PROYECTOS/ECOMMERCE (README.md, PROGRESS.md). Sin enlace a la tienda hasta que Amador lo confirme.
+order: 3
+group: web
+name: Olaloom
+tagline:
+  en: A Shopify store to test products with ads
+  fr: Une boutique Shopify pour tester des produits avec de la publicité
+  es: Una tienda Shopify para testear productos con anuncios
+description:
+  en: >-
+    An e-commerce store on Shopify with its own theme (based on Dawn), set up to test products with
+    paid ads in Spain and scale the winners. It includes the ad creatives, translations and an
+    international version in preparation.
+  fr: >-
+    Une boutique e-commerce sur Shopify avec son propre thème (basé sur Dawn), conçue pour tester des
+    produits avec de la publicité payante en Espagne et développer les gagnants. Elle comprend les
+    créations publicitaires, les traductions et une version internationale en préparation.
+  es: >-
+    Una tienda online en Shopify con tema propio (basado en Dawn), pensada para probar productos con
+    anuncios de pago en España y escalar los ganadores. Incluye las creatividades de los anuncios, las
+    traducciones y una versión internacional en preparación.
+stack: [Shopify, Liquid, Meta Ads]
+status: live
+year: 2026
+accent: '#2DD4BF'

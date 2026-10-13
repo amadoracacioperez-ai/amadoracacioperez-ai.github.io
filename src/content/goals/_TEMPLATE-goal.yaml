@@ -1,0 +1,14 @@
+# PLANTILLA (el guion bajo inicial hace que no se cargue). Copia este fichero sin el "_" para
+# añadir un objetivo. Pon draft: false para publicarlo. Solo objetivos reales de Amador.
+order: 1
+track: sports # professional | sports | personal
+title:
+  en: 'Goal'
+  fr: 'Objectif'
+  es: 'Objetivo'
+detail:
+  en: 'Short detail.'
+  fr: 'Court détail.'
+  es: 'Detalle breve.'
+horizon: '2027'
+draft: true

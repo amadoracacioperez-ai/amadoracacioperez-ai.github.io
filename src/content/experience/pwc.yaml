@@ -1,0 +1,35 @@
+# Fuente: perfil_maestro.yaml (experience.pwc). Mapfre figura como cliente en LinkedIn.
+order: 4
+role:
+  en: IT Consultant · Business Security Solutions
+  fr: Consultant IT · Business Security Solutions
+  es: Consultor IT · Business Security Solutions
+org: PwC Spain
+start: '2020-09'
+end: '2022-12'
+summary:
+  en: >-
+    IT audit, risk and cybersecurity engagements focused on access reviews (users, permissions and
+    segregation of duties), and data analysis for large international companies.
+  fr: >-
+    Missions d'audit informatique, de risques et de cybersécurité centrées sur les revues d'accès
+    (utilisateurs, droits et séparation des tâches), et analyse de données pour de grands groupes
+    internationaux.
+  es: >-
+    Proyectos de auditoría informática, riesgos y ciberseguridad centrados en revisiones de accesos
+    (usuarios, permisos y segregación de funciones), y análisis de datos para grandes empresas
+    internacionales.
+highlights:
+  - en: Data analyst for Mapfre, preparing reports for its departments and building Power BI dashboards.
+    fr: Analyste de données pour Mapfre, avec des rapports pour ses différents départements et des tableaux de bord Power BI.
+    es: Analista de datos para Mapfre, con informes para sus distintos departamentos y cuadros de mando en Power BI.
+  - en: Diagnosed problem areas and identified trends to propose short- and long-term solutions.
+    fr: Diagnostic des points faibles et identification de tendances pour proposer des solutions à court et long terme.
+    es: Diagnóstico de puntos débiles e identificación de tendencias para proponer soluciones a corto y largo plazo.
+  - en: Presented weekly, monthly and quarterly reports to business and IT managers.
+    fr: Présentation de rapports hebdomadaires, mensuels et trimestriels aux responsables métier et IT.
+    es: Presentación de informes semanales, mensuales y trimestrales a responsables de negocio e IT.
+  - en: Led client workshops, Fit-Gap analyses and design thinking sessions.
+    fr: Animation d'ateliers clients, d'analyses Fit-Gap et de sessions de design thinking.
+    es: Talleres con clientes, análisis Fit-Gap y sesiones de design thinking.
+tags: [IT audit, Cybersecurity, Access reviews, Data analysis, Power BI]

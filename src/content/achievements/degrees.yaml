@@ -1,0 +1,13 @@
+order: 5
+track: academic
+period: 2015 – 2022
+title:
+  en: Computer engineer with an MBA
+  fr: Ingénieur informaticien et MBA
+  es: Ingeniero informático con un MBA
+detail:
+  en: Universidad Autónoma de Madrid and ThePower Business School.
+  fr: Universidad Autónoma de Madrid et ThePower Business School.
+  es: Universidad Autónoma de Madrid y ThePower Business School.
+metric: '2'
+metricLabel: { en: degrees, fr: diplômes, es: titulaciones }

@@ -1,0 +1,14 @@
+# Fuente: perfil_maestro.yaml (experience.fbm-referee, LinkedIn) y cartas enviadas.
+order: 1
+track: sports
+period: 2016 – 2020
+title:
+  en: Semi-professional basketball referee
+  fr: Arbitre de basket-ball semi-professionnel
+  es: Árbitro semiprofesional de baloncesto
+detail:
+  en: Four years refereeing for the Madrid Basketball Federation (FBM).
+  fr: Quatre ans d'arbitrage pour la Fédération de basket-ball de Madrid (FBM).
+  es: Cuatro años arbitrando para la Federación de Baloncesto de Madrid (FBM).
+metric: '4'
+metricLabel: { en: years, fr: ans, es: años }

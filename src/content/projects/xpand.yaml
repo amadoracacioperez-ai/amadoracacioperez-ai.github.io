@@ -1,0 +1,28 @@
+# Fuente: repo xylagenciamarketingdeportivo-prog/xpand-web (README.md), web pública xpandyourlimits.es.
+order: 1
+group: web
+name: XPAND
+tagline:
+  en: Website for a sports marketing agency
+  fr: Le site d'une agence de marketing sportif
+  es: La web de una agencia de marketing deportivo
+description:
+  en: >-
+    The public website of XPAND, a sports marketing agency: services, team and partner carousels, a
+    newsletter sign-up and contact. Plain HTML, CSS and JavaScript with no build step, a Content
+    Security Policy and a custom domain on GitHub Pages.
+  fr: >-
+    Le site public de XPAND, agence de marketing sportif : services, carrousels de l'équipe et des
+    partenaires, inscription à la newsletter et contact. Du HTML, CSS et JavaScript sans étape de
+    build, une Content Security Policy et un domaine personnalisé sur GitHub Pages.
+  es: >-
+    La web pública de XPAND, agencia de marketing deportivo: servicios, carruseles del equipo y de los
+    colaboradores, alta en la newsletter y contacto. HTML, CSS y JavaScript sin paso de build, con
+    Content Security Policy y dominio propio en GitHub Pages.
+stack: [HTML, CSS, JavaScript, GitHub Pages]
+status: live
+year: 2026
+links:
+  - label: xpandyourlimits.es
+    url: https://xpandyourlimits.es
+accent: '#F97316'

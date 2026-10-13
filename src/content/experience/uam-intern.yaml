@@ -1,0 +1,19 @@
+# Fuente: perfil_maestro.yaml (experience.uam-intern, LinkedIn).
+order: 6
+role: { en: R&D Intern, fr: Stagiaire R&D, es: Becario de I+D }
+org: Universidad Autónoma de Madrid
+location: { en: 'Madrid, Spain', fr: 'Madrid, Espagne', es: 'Madrid, España' }
+start: '2017-01'
+end: '2018-06'
+summary:
+  en: >-
+    Developed the automated lending system of the Escuela Politécnica Superior, based on barcodes and
+    databases (SQL, PHP, HTML, JavaScript).
+  fr: >-
+    Développement du système de prêt automatisé de l'Escuela Politécnica Superior, basé sur des
+    codes-barres et des bases de données (SQL, PHP, HTML, JavaScript).
+  es: >-
+    Desarrollo del sistema automatizado de préstamo de la Escuela Politécnica Superior, basado en
+    códigos de barras y bases de datos (SQL, PHP, HTML, JavaScript).
+tags: [SQL, PHP, HTML, JavaScript]
+compact: true

@@ -1,0 +1,31 @@
+# Fuente: ~/PROYECTOS/GENERADORFOTOSIA (README.md, requirements.txt, config.yaml).
+order: 3
+group: ai
+name:
+  en: AI portrait generator
+  fr: Générateur de portraits IA
+  es: Generador de fotos con IA
+tagline:
+  en: Professional LinkedIn portraits from everyday photos
+  fr: Des portraits professionnels pour LinkedIn à partir de photos du quotidien
+  es: Retratos profesionales para LinkedIn a partir de fotos normales
+description:
+  en: >-
+    Turns regular phone photos into professional portraits. It detects and crops the face, combines
+    reusable style templates (outfit, background, lighting) and sends them to Gemini or OpenAI image
+    models while keeping the person's face. It also renders a comparison sheet with LinkedIn's
+    circular crop.
+  fr: >-
+    Transforme des photos prises au téléphone en portraits professionnels. Il détecte et recadre le
+    visage, combine des modèles de style réutilisables (tenue, fond, lumière) et les envoie aux
+    modèles d'image de Gemini ou d'OpenAI en conservant le visage. Il génère aussi une planche
+    comparative avec le recadrage circulaire de LinkedIn.
+  es: >-
+    Convierte fotos normales del móvil en retratos profesionales. Detecta y recorta la cara, combina
+    plantillas de estilo reutilizables (ropa, fondo, luz) y las envía a los modelos de imagen de
+    Gemini u OpenAI manteniendo la cara. También genera una hoja comparativa con el recorte circular
+    de LinkedIn.
+stack: [Python, OpenCV, Pillow, Gemini API, OpenAI API]
+status: prototype
+year: 2026
+accent: '#F472B6'
