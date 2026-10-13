@@ -21,7 +21,7 @@ html[data-theme='sport'] {
   --title-transform: uppercase;
   --display-stretch: 112%;
   --eyebrow-tracking: 0.28em;
-  --scrim: linear-gradient(90deg, rgb(10 10 10 / 0.7), transparent 75%);
+  --scrim: radial-gradient(closest-side at 40% 50%, rgb(10 10 10 / 0.7), transparent);
 }
 html[data-theme='sport'] .card {
   border-width: 1px 0 0;

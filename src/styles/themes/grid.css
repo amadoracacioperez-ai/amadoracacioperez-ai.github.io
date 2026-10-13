@@ -21,7 +21,7 @@ html[data-theme='grid'] {
   --title-tracking: 0.01em;
   --title-transform: uppercase;
   --eyebrow-tracking: 0.24em;
-  --scrim: radial-gradient(110% 90% at 25% 50%, rgb(7 1 15 / 0.62), transparent 72%);
+  --scrim: radial-gradient(closest-side at 40% 50%, rgb(7 1 15 / 0.62), transparent);
 }
 html[data-theme='grid'] .card::before,
 html[data-theme='grid'] .card::after {

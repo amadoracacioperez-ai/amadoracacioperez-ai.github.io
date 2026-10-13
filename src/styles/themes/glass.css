@@ -20,7 +20,7 @@ html[data-theme='glass'] {
   --font-display: 'Manrope Variable', 'Inter Variable', system-ui, sans-serif;
   --title-weight: 700;
   --title-tracking: -0.035em;
-  --scrim: radial-gradient(110% 90% at 25% 50%, rgb(17 18 20 / 0.55), transparent 72%);
+  --scrim: radial-gradient(closest-side at 40% 50%, rgb(17 18 20 / 0.55), transparent);
 }
 html[data-theme='glass'] .card {
   background: var(--card-bg);

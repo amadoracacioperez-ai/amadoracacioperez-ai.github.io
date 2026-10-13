@@ -16,7 +16,7 @@ html[data-theme='space'] {
   --chip-bg: rgb(148 163 184 / 0.13);
   --font-display: 'Space Grotesk Variable', 'Inter Variable', system-ui, sans-serif;
   --title-weight: 600;
-  --scrim: radial-gradient(110% 90% at 25% 50%, rgb(5 6 10 / 0.6), transparent 72%);
+  --scrim: radial-gradient(closest-side at 40% 50%, rgb(5 6 10 / 0.62), transparent);
 }
 html[data-theme='space'] .hero__headline span:nth-child(3) {
   color: var(--accent-2);

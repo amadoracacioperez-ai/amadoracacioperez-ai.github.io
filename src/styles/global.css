@@ -37,7 +37,7 @@
   --title-transform: none;
   --display-stretch: 100%;
   --eyebrow-tracking: 0.18em;
-  --scrim: radial-gradient(120% 90% at 20% 50%, rgb(5 6 10 / 0.55), transparent 70%);
+  --scrim: radial-gradient(closest-side at 40% 50%, rgb(5 6 10 / 0.6), transparent);
 
   color-scheme: dark;
 }
@@ -731,7 +731,7 @@ html[data-motion-ready] .hero__scroll {
 }
 .milestones {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
   gap: 14px;
   margin: 0;
   padding: 0;
@@ -1258,7 +1258,7 @@ html[data-motion-ready] .frame__inner {
 html[data-motion-ready] .frame__inner::before {
   content: '';
   position: absolute;
-  inset: -12% -20%;
+  inset: -22% -18%;
   z-index: -1;
   background: var(--scrim);
   pointer-events: none;
