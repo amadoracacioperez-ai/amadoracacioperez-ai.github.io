@@ -1,0 +1,26 @@
+/* Viaje espacial: casi negro, cian y violeta, brillo suave. */
+html[data-theme='space'] {
+  --bg: #05060a;
+  --bg-fallback:
+    radial-gradient(60% 50% at 80% 20%, rgb(139 92 246 / 0.16), transparent 70%),
+    radial-gradient(50% 40% at 15% 85%, rgb(94 234 212 / 0.1), transparent 70%);
+  --fg: #e8eaf2;
+  --fg-muted: #9ba3b8;
+  --line: rgb(148 163 184 / 0.2);
+  --accent: #5eead4;
+  --accent-2: #8b5cf6;
+  --on-accent: #032620;
+  --card-bg: rgb(11 14 26 / 0.6);
+  --card-border: 1px solid rgb(148 163 184 / 0.16);
+  --card-blur: 14px;
+  --chip-bg: rgb(148 163 184 / 0.13);
+  --font-display: 'Space Grotesk Variable', 'Inter Variable', system-ui, sans-serif;
+  --title-weight: 600;
+  --scrim: radial-gradient(110% 90% at 25% 50%, rgb(5 6 10 / 0.6), transparent 72%);
+}
+html[data-theme='space'] .hero__headline span:nth-child(3) {
+  color: var(--accent-2);
+}
+html[data-theme='space'] .brand__mark {
+  box-shadow: 0 0 18px rgb(94 234 212 / 0.35);
+}

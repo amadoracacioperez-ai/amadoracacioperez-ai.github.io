@@ -1,0 +1,53 @@
+---
+import Frame from '@/components/Frame.astro';
+import Station from '@/components/Station.astro';
+import { SITE, type Locale } from '@/config/site';
+import { useTranslations } from '@/i18n/utils';
+
+interface Props {
+  lang: Locale;
+  number: string;
+}
+const { lang, number } = Astro.props;
+const t = useTranslations(lang);
+const label = t('nav.contact');
+---
+
+<Station id="contact" label={label}>
+  <Frame stationId="contact" number={number} label={label} title={t('contact.title')}>
+    <div class="contact">
+      <p class="lead">{t('contact.lead')}</p>
+      <ul class="contact__links">
+        <li>
+          <a
+            class="contact__link card"
+            href="#contact"
+            data-email-user={SITE.email.user}
+            data-email-domain={SITE.email.domain}
+          >
+            <span>{t('contact.email')}</span>
+            <strong data-email-text>{t('contact.emailFallback')}</strong>
+          </a>
+        </li>
+        <li>
+          <a class="contact__link card" href={SITE.linkedin} target="_blank" rel="noopener noreferrer">
+            <span>{t('contact.linkedin')}</span>
+            <strong>amador-acacio-perez ↗</strong>
+          </a>
+        </li>
+        <li>
+          <a class="contact__link card" href={SITE.github} target="_blank" rel="noopener noreferrer">
+            <span>{t('contact.github')}</span>
+            <strong>amadoracacioperez-ai ↗</strong>
+          </a>
+        </li>
+        <li>
+          <a class="contact__link card" href={SITE.cv} download>
+            <span>{t('contact.cv')}</span>
+            <strong>{t('cta.cv')} ↓</strong>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </Frame>
+</Station>

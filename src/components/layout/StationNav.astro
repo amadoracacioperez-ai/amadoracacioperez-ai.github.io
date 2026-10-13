@@ -1,0 +1,32 @@
+---
+import type { Locale } from '@/config/site';
+import { useTranslations } from '@/i18n/utils';
+import type { NavStation } from './Header.astro';
+
+interface Props {
+  lang: Locale;
+  stations: NavStation[];
+}
+const { lang, stations } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<nav class="station-nav" aria-label={t('a11y.stations')}>
+  <ol>
+    {
+      stations.map((s) => (
+        <li>
+          <a href={`#${s.id}`} data-goto={s.id} data-nav={s.id}>
+            <span>{s.label}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<div class="hud" aria-hidden="true">
+  <span class="hud__value" data-hud-value>000</span>
+  <span class="hud__unit" data-hud-unit>{t('hud.progress')}</span>
+  <span class="hud__bar"><i></i></span>
+</div>

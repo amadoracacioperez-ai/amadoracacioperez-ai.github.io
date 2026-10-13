@@ -1,0 +1,47 @@
+---
+import Station from '@/components/Station.astro';
+import { SITE, type Locale } from '@/config/site';
+import { profile } from '@/data/profile';
+import { tx, useTranslations } from '@/i18n/utils';
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const [first, ...rest] = profile.name.split(' ');
+---
+
+<Station id="hero" label={profile.name}>
+  <div class="frame" data-frame data-start-visible>
+    <div class="frame__inner hero">
+      <p class="hero__hello">{t('hero.hello')}</p>
+      <h1 class="hero__name" id="hero-title">
+        <span>{first}</span>
+        <span class="hero__surname">{rest.join(' ')}</span>
+      </h1>
+      <p class="hero__headline">
+        {profile.headline.map((line) => <span>{tx(line, lang)}</span>)}
+      </p>
+      <p class="hero__meta">
+        <span>{t('hero.basedIn')}</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span>ES · EN · FR · IT</span>
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#projects" data-goto="projects">{t('cta.projects')}</a>
+        <a class="btn" href={SITE.cv} download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"
+            ><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"></path></svg
+          >
+          {t('cta.cv')}
+        </a>
+        <a class="btn" href="#contact" data-goto="contact">{t('cta.contact')}</a>
+      </div>
+      <p class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-line"></span>
+        {t('hero.scroll')}
+      </p>
+    </div>
+  </div>
+</Station>

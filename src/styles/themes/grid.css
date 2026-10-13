@@ -1,0 +1,70 @@
+/* Cyber-grid holográfica: magenta y cian sobre violeta muy oscuro, etiquetas mono. */
+html[data-theme='grid'] {
+  --bg: #07010f;
+  --bg-fallback:
+    linear-gradient(180deg, #07010f 0%, #150428 70%, #2a0638 100%);
+  --fg: #f3ecff;
+  --fg-muted: #b3a6cc;
+  --line: rgb(255 43 214 / 0.28);
+  --accent: #ff4fdc;
+  --accent-2: #22d3ee;
+  --on-accent: #1a0016;
+  --radius: 2px;
+  --radius-sm: 2px;
+  --card-bg: rgb(12 3 24 / 0.72);
+  --card-border: 1px solid rgb(34 211 238 / 0.32);
+  --card-blur: 8px;
+  --card-shadow: 0 0 0 1px rgb(255 43 214 / 0.06), 0 0 32px rgb(255 43 214 / 0.12);
+  --chip-bg: rgb(34 211 238 / 0.1);
+  --font-display: 'Chakra Petch', 'Inter Variable', system-ui, sans-serif;
+  --title-weight: 700;
+  --title-tracking: 0.01em;
+  --title-transform: uppercase;
+  --eyebrow-tracking: 0.24em;
+  --scrim: radial-gradient(110% 90% at 25% 50%, rgb(7 1 15 / 0.62), transparent 72%);
+}
+html[data-theme='grid'] .card::before,
+html[data-theme='grid'] .card::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 0 solid var(--accent-2);
+  pointer-events: none;
+}
+html[data-theme='grid'] .card::before {
+  left: -1px;
+  top: -1px;
+  border-width: 2px 0 0 2px;
+}
+html[data-theme='grid'] .card::after {
+  right: -1px;
+  bottom: -1px;
+  border-width: 0 2px 2px 0;
+}
+html[data-theme='grid'] .station-title,
+html[data-theme='grid'] .hero__name {
+  text-shadow:
+    0 0 18px rgb(255 79 220 / 0.45),
+    0 0 2px rgb(255 255 255 / 0.6);
+}
+html[data-theme='grid'] .hero__name .hero__surname {
+  -webkit-text-stroke: 1.2px var(--accent-2);
+  text-shadow: 0 0 22px rgb(34 211 238 / 0.5);
+}
+html[data-theme='grid'] .chip {
+  border-radius: 0;
+  color: var(--accent-2);
+}
+html[data-theme='grid'] .btn {
+  border-radius: 0;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+html[data-theme='grid'] .btn--primary {
+  box-shadow: 0 0 22px rgb(255 79 220 / 0.45);
+}
+html[data-theme='grid'] .brand__mark {
+  border-radius: 0;
+}

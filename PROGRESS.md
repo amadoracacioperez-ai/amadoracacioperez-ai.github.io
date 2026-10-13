@@ -5,9 +5,9 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
 
 ## Estado actual
 
-- **Fase:** 1 de 8, la base del proyecto (en curso).
-- **Siguiente paso:** terminar la base (config y documentación) y hacer el primer commit. Después,
-  contenido e i18n.
+- **Fase:** 4 de 8, el motor 3D (en curso). Las fases 1 a 3 están hechas.
+- **Siguiente paso:** la isla React del canvas (`src/components/three/Experience.tsx`, ahora mismo un
+  stub que devuelve null), la carga dinámica de cada escena y después las 5 escenas.
 
 ## Decisiones fijadas (2026-10-13)
 
@@ -35,9 +35,10 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
 
 ## Plan por fases
 
-1. [ ] **Base:** Astro, dependencias, configuración, AGENTS.md, PROGRESS.md, README y `git init`.
-2. [ ] **Contenido e i18n:** esquemas, perfil, textos de la interfaz y YAML en EN, FR y ES.
-3. [ ] **Maquetación HTML:** maqueta plana, cabecera y secciones, y los tokens de los 5 estilos.
+1. [x] **Base:** Astro, dependencias, configuración, AGENTS.md, PROGRESS.md, README y `git init`.
+2. [x] **Contenido e i18n:** esquemas, perfil, textos de la interfaz y YAML en EN, FR y ES.
+3. [x] **Maquetación HTML:** maqueta plana, cabecera y secciones, y los tokens de los 5 estilos.
+   También el motor de scroll del DOM (`src/lib/motion.ts`), la vista rápida y el selector `?preview`.
 4. [ ] **Motor 3D:** scroll, estaciones, canvas, vista rápida y selector `?preview`.
 5. [ ] **Escenas:** space, sport, grid, glass y supercar.
 6. [ ] **SEO y extras:** OG, favicon, robots.txt, CV y docs/DOMINIO.md.
@@ -63,3 +64,13 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
   - Dependencias instaladas: React 19.3, three 0.186, R3F 9.8, drei 10.7, postprocessing 3.2,
     Lenis 1.3, Tailwind 4.3 y TypeScript 6 (`@astrojs/check` aún no admite TS 7).
   - Aviso EBADENGINE de undici (pide Node ≥ 22.19; tenemos 22.16). Viene de `unifont` y no se usa.
+  - Contenido escrito: 6 experiencias, 2 formaciones, 6 hitos y 11 proyectos, en EN, FR y ES.
+  - Maqueta hecha (las fases 2 y 3 tienen su commit). Detalles de cómo funciona:
+    - El motor de scroll es propio: Lenis más un tramo por pantalla (entra, se queda, sale). Las
+      pantallas más altas que la pantalla se desplazan solas durante la fase en la que se quedan.
+    - El modo 3D solo se activa cuando motion.ts añade `data-motion-ready`. Si el JS falla, se ve la
+      maqueta plana.
+    - En el estilo sport, el rojo pasa de #C8102E a #E0263F para que el texto pequeño tenga contraste
+      AA sobre negro.
+  - Capturas: script en el scratchpad de la sesión (playwright-core con el Chrome instalado), con el
+    gancho `window.__aaMotion` (`centers`, `scrollToY`, `goTo`).

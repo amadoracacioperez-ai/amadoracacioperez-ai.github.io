@@ -1,0 +1,67 @@
+---
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import StationNav from '@/components/layout/StationNav.astro';
+import ThemePicker from '@/components/layout/ThemePicker.astro';
+import About from '@/components/sections/About.astro';
+import Contact from '@/components/sections/Contact.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Journey from '@/components/sections/Journey.astro';
+import Milestones from '@/components/sections/Milestones.astro';
+import Projects from '@/components/sections/Projects.astro';
+import Experience from '@/components/three/Experience';
+import type { Locale } from '@/config/site';
+import type { UiKey } from '@/i18n/ui';
+import { useTranslations } from '@/i18n/utils';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { loadContent } from '@/lib/content';
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const content = await loadContent();
+
+const hasMilestones = content.achievements.length > 0 || content.goals.length > 0;
+const hasProjects = content.projects.length > 0;
+const order = [
+  'about',
+  'journey',
+  hasMilestones ? 'milestones' : null,
+  hasProjects ? 'projects' : null,
+  'contact',
+].filter((id): id is string => id !== null);
+const num = (id: string) => String(order.indexOf(id) + 1).padStart(2, '0');
+const stations = order.map((id) => ({ id, label: t(`nav.${id}` as UiKey) }));
+---
+
+<BaseLayout lang={lang}>
+  <Header lang={lang} stations={stations} />
+  <main id="main" tabindex="-1">
+    <Hero lang={lang} />
+    <About lang={lang} number={num('about')} projectCount={content.projects.length} />
+    <Journey
+      lang={lang}
+      number={num('journey')}
+      experience={content.experience}
+      education={content.education}
+    />
+    <Milestones
+      lang={lang}
+      number={num('milestones')}
+      achievements={content.achievements}
+      goals={content.goals}
+    />
+    <Projects lang={lang} number={num('projects')} projects={content.projects} />
+    <Contact lang={lang} number={num('contact')} />
+  </main>
+  <Footer lang={lang} />
+  <StationNav lang={lang} stations={stations} />
+  <ThemePicker lang={lang} />
+  <Experience client:only="react" />
+  <script>
+    import '@/lib/site-ui';
+    import '@/lib/motion';
+  </script>
+</BaseLayout>

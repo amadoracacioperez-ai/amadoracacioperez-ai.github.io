@@ -1,0 +1,39 @@
+---
+// Una pantalla dentro de una estación. La primera de cada estación lleva el título (h2);
+// las siguientes repiten la etiqueta de la estación (oculta en la maqueta plana).
+interface Props {
+  stationId: string;
+  /** Número de la estación ("01"). */
+  number?: string;
+  label?: string;
+  /** Si se indica, se pinta el título de la estación (h2). */
+  title?: string;
+  /** Subtítulo de la pantalla (por ejemplo "Experiencia anterior"). */
+  sub?: string;
+  class?: string;
+}
+const { stationId, number, label, title, sub, class: className } = Astro.props;
+const repeat = !title;
+---
+
+<div class:list={['frame', className]} data-frame>
+  <div class="frame__inner">
+    {
+      label && (
+        <p class:list={['eyebrow', { 'eyebrow--repeat': repeat && !sub }]}>
+          {number && <span class="eyebrow__num">{number}</span>}
+          <span class="eyebrow__line" aria-hidden="true" />
+          <span>{sub ? `${label} · ${sub}` : label}</span>
+        </p>
+      )
+    }
+    {
+      title && (
+        <h2 class="station-title" id={`${stationId}-title`}>
+          {title}
+        </h2>
+      )
+    }
+    <slot />
+  </div>
+</div>

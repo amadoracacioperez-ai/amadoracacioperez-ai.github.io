@@ -1,0 +1,96 @@
+---
+import Frame from '@/components/Frame.astro';
+import Station from '@/components/Station.astro';
+import type { Locale } from '@/config/site';
+import { journeyFrames, type Education, type Experience } from '@/lib/content';
+import { formatPeriod, tx, useTranslations } from '@/i18n/utils';
+
+interface Props {
+  lang: Locale;
+  number: string;
+  experience: Experience[];
+  education: Education[];
+}
+const { lang, number, experience, education } = Astro.props;
+const t = useTranslations(lang);
+const label = t('nav.journey');
+const present = t('journey.present');
+const frames = journeyFrames(experience, education);
+const where = (e: Experience) =>
+  [tx(e.data.org, lang), e.data.location && tx(e.data.location, lang)].filter(Boolean).join(' · ');
+---
+
+<Station id="journey" label={label}>
+  {
+    frames.map((frame, i) => (
+      <Frame
+        stationId="journey"
+        number={number}
+        label={label}
+        title={i === 0 ? t('journey.title') : undefined}
+        sub={
+          frame.kind === 'earlier'
+            ? t('journey.earlier')
+            : frame.kind === 'education'
+              ? t('journey.education')
+              : undefined
+        }
+      >
+        {frame.kind === 'role' && (
+          <article class="role">
+            <div>
+              <p class="role__period">
+                {formatPeriod(frame.item.data.start, frame.item.data.end, present)}
+              </p>
+              <p class="role__org">{where(frame.item)}</p>
+            </div>
+            <div class="role__body card">
+              <h3 class="frame-title">{tx(frame.item.data.role, lang)}</h3>
+              <p class="role__summary">{tx(frame.item.data.summary, lang)}</p>
+              {frame.item.data.highlights.length > 0 && (
+                <ul class="role__highlights">
+                  {frame.item.data.highlights.map((h) => (
+                    <li>{tx(h, lang)}</li>
+                  ))}
+                </ul>
+              )}
+              {frame.item.data.tags.length > 0 && (
+                <ul class="chips">
+                  {frame.item.data.tags.map((tag) => (
+                    <li class="chip">{tag}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </article>
+        )}
+
+        {frame.kind === 'earlier' && (
+          <div class="pair">
+            {frame.items.map((e) => (
+              <article class="mini-role card">
+                <p class="mini-role__period">{formatPeriod(e.data.start, e.data.end, present)}</p>
+                <h3>{tx(e.data.role, lang)}</h3>
+                <p class="role__org">{where(e)}</p>
+                <p>{tx(e.data.summary, lang)}</p>
+              </article>
+            ))}
+          </div>
+        )}
+
+        {frame.kind === 'education' && (
+          <div class="pair">
+            {frame.items.map((e) => (
+              <article class="mini-role card">
+                <p class="mini-role__period">{formatPeriod(e.data.start, e.data.end, present)}</p>
+                <h3>{tx(e.data.degree, lang)}</h3>
+                <p class="role__org">{e.data.institution}</p>
+                {e.data.detail && <p>{tx(e.data.detail, lang)}</p>}
+              </article>
+            ))}
+          </div>
+        )}
+      </Frame>
+    ))
+  }
+</Station>

@@ -1,0 +1,43 @@
+---
+// Selector de estilo visual. Solo se ve con ?preview (html[data-preview]).
+import { THEME_SWATCHES, THEMES, type Locale } from '@/config/site';
+import type { UiKey } from '@/i18n/ui';
+import { useTranslations } from '@/i18n/utils';
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<aside class="theme-picker" aria-label={t('theme.title')} data-theme-picker>
+  <div class="theme-picker__head">
+    <p class="theme-picker__title">{t('theme.title')}</p>
+    <button class="theme-picker__toggle" type="button" data-theme-picker-toggle aria-expanded="true">
+      –
+    </button>
+  </div>
+  <div class="theme-picker__body">
+    <p class="theme-picker__hint">{t('theme.hint')}</p>
+    <ul class="theme-picker__list">
+      {
+        THEMES.map((id, i) => (
+          <li>
+            <button class="theme-picker__btn" type="button" data-theme-choice={id} aria-pressed="false">
+              <span class="theme-picker__swatch" aria-hidden="true">
+                {THEME_SWATCHES[id].map((c) => (
+                  <i style={`background:${c}`} />
+                ))}
+              </span>
+              {t(`theme.${id}` as UiKey)}
+              <span class="theme-picker__key" aria-hidden="true">
+                {i + 1}
+              </span>
+            </button>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</aside>

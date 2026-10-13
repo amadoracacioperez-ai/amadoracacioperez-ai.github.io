@@ -1,0 +1,43 @@
+---
+import { LOCALES } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { LOCALE_NAME, localePath, useTranslations } from '@/i18n/utils';
+
+const t = useTranslations('en');
+---
+
+<BaseLayout lang="en" title={`404 · ${t('404.title')}`} noindex>
+  <main id="main" class="not-found wrap">
+    <p class="eyebrow"><span class="eyebrow__num">404</span><span class="eyebrow__line"></span></p>
+    <h1 class="station-title">{t('404.title')}</h1>
+    <p class="lead">{t('404.text')}</p>
+    <ul class="not-found__links">
+      {
+        LOCALES.map((l) => (
+          <li>
+            <a class="btn" href={localePath(l, '/')} lang={l}>
+              {LOCALE_NAME[l]}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found {
+    display: flex;
+    min-height: 100svh;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .not-found__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 32px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+</style>

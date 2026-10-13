@@ -1,0 +1,116 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource-variable/manrope';
+import '@fontsource/chakra-petch/500.css';
+import '@fontsource/chakra-petch/700.css';
+import '@fontsource-variable/jetbrains-mono';
+import '@fontsource-variable/sora';
+import '@/styles/global.css';
+
+import { DEFAULT_LOCALE, LOCALES, SITE, THEME_BG, THEMES, type Locale } from '@/config/site';
+import { profile } from '@/data/profile';
+import { OG_LOCALE, localePath, tx, useTranslations } from '@/i18n/utils';
+
+interface Props {
+  lang: Locale;
+  title?: string;
+  description?: string;
+  /** Ruta sin prefijo de idioma, para los hreflang (por defecto '/'). */
+  path?: string;
+  noindex?: boolean;
+}
+
+const { lang, path = '/', noindex = false } = Astro.props;
+const t = useTranslations(lang);
+const title = Astro.props.title ?? t('meta.title');
+const description = Astro.props.description ?? t('meta.description');
+const site = Astro.site ?? new URL(SITE.url);
+const canonical = new URL(localePath(lang, path), site).href;
+const ogImage = new URL(SITE.ogImage, site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  givenName: profile.givenName,
+  familyName: profile.familyName,
+  url: new URL(localePath(lang, '/'), site).href,
+  image: ogImage,
+  jobTitle: tx(profile.jobTitle, lang),
+  worksFor: { '@type': 'Organization', name: 'Esker' },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Universidad Autónoma de Madrid' },
+    { '@type': 'EducationalOrganization', name: 'ThePower Business School' },
+  ],
+  knowsLanguage: ['es', 'en', 'fr', 'it'],
+  address: { '@type': 'PostalAddress', addressLocality: 'Paris', addressCountry: 'FR' },
+  sameAs: [SITE.linkedin, SITE.github],
+};
+
+// Script de arranque: aplica estilo, vista previa y modo antes del primer pintado.
+const boot = `(()=>{try{var d=document.documentElement,T=${JSON.stringify(THEMES)},q=new URLSearchParams(location.search),s=localStorage,th=q.get('theme');
+if(th&&T.indexOf(th)>-1)s.setItem('aa-theme',th);else th=s.getItem('aa-theme');
+if(!th||T.indexOf(th)<0)th=${JSON.stringify(SITE.defaultTheme)};d.dataset.theme=th;
+var pv=q.has('preview');if(pv)sessionStorage.setItem('aa-preview','1');else pv=sessionStorage.getItem('aa-preview')==='1';
+if(pv)d.setAttribute('data-preview','');
+var v=s.getItem('aa-view'),rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+d.dataset.motion=(v==='quick'||rm)?'flat':'full';}catch(e){document.documentElement.dataset.motion='flat';}
+document.documentElement.classList.add('js');})();`;
+---
+
+<!doctype html>
+<html lang={lang} data-theme={SITE.defaultTheme} data-motion="flat">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <script is:inline set:html={boot} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={profile.name} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    {
+      LOCALES.map((l) => (
+        <link rel="alternate" hreflang={l} href={new URL(localePath(l, path), site).href} />
+      ))
+    }
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(localePath(DEFAULT_LOCALE, path), site).href}
+    />
+    <meta name="theme-color" content={THEME_BG[SITE.defaultTheme]} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content={profile.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={OG_LOCALE[lang]} />
+    {
+      LOCALES.filter((l) => l !== lang).map((l) => (
+        <meta property="og:locale:alternate" content={OG_LOCALE[l]} />
+      ))
+    }
+    <meta property="profile:first_name" content={profile.givenName} />
+    <meta property="profile:last_name" content={profile.familyName} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t('a11y.skip')}</a>
+    <slot />
+  </body>
+</html>

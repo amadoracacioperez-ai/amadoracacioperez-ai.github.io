@@ -1,0 +1,48 @@
+/* Superdeportivo: noche, asfalto y naranja de pilotos. Estética de cuadro de mandos. */
+html[data-theme='supercar'] {
+  --bg: #050505;
+  --bg-fallback:
+    radial-gradient(80% 50% at 50% 100%, rgb(255 95 31 / 0.14), transparent 70%),
+    linear-gradient(180deg, #050505, #0b0b0d);
+  --fg: #f4f4f4;
+  --fg-muted: #a3a3a8;
+  --line: rgb(255 255 255 / 0.16);
+  --accent: #ff6a2b;
+  --accent-2: #ffd166;
+  --on-accent: #1a0800;
+  --radius: 6px;
+  --radius-sm: 4px;
+  --card-bg: rgb(8 8 10 / 0.72);
+  --card-border: 1px solid rgb(255 255 255 / 0.12);
+  --card-blur: 10px;
+  --chip-bg: rgb(255 255 255 / 0.08);
+  --font-display: 'Sora Variable', 'Inter Variable', system-ui, sans-serif;
+  --title-weight: 750;
+  --title-tracking: -0.03em;
+  --title-transform: uppercase;
+  --scrim: radial-gradient(110% 90% at 25% 50%, rgb(5 5 5 / 0.62), transparent 72%);
+}
+html[data-theme='supercar'] .station-title,
+html[data-theme='supercar'] .hero__name {
+  font-style: italic;
+  transform: skewX(-7deg);
+  transform-origin: left bottom;
+}
+html[data-theme='supercar'] .card {
+  border-left: 3px solid var(--accent);
+}
+html[data-theme='supercar'] .btn {
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+}
+html[data-theme='supercar'] .hero__name .hero__surname {
+  color: var(--accent);
+  -webkit-text-stroke: 0;
+}
+html[data-theme='supercar'] .hud__value {
+  color: var(--accent);
+  font-size: 1.6rem;
+  font-style: italic;
+}

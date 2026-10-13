@@ -1,0 +1,22 @@
+---
+// Una estación del viaje: <section> con un escenario que en modo 3D es sticky.
+// Las pantallas (<Frame>) van dentro, en el slot.
+interface Props {
+  id: string;
+  label: string;
+  class?: string;
+}
+const { id, label, class: className } = Astro.props;
+---
+
+<section
+  class:list={['station', `station--${id}`, className]}
+  id={id}
+  data-station={id}
+  data-label={label}
+  aria-labelledby={`${id}-title`}
+>
+  <div class="station__stage">
+    <slot />
+  </div>
+</section>

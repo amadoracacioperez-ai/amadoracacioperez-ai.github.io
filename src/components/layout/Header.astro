@@ -1,0 +1,98 @@
+---
+import { LOCALES, SITE, type Locale } from '@/config/site';
+import { profile } from '@/data/profile';
+import { LOCALE_LABEL, LOCALE_NAME, localePath, useTranslations } from '@/i18n/utils';
+
+export interface NavStation {
+  id: string;
+  label: string;
+}
+interface Props {
+  lang: Locale;
+  stations: NavStation[];
+  /** Ruta sin idioma, para el selector de idioma. */
+  path?: string;
+}
+const { lang, stations, path = '/' } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<header class="site-header">
+  <div class="wrap site-header__bar">
+    <a class="brand" href={localePath(lang, '/')} aria-label={t('a11y.home')} data-goto="top">
+      <span class="brand__mark" aria-hidden="true">AA</span>
+      <span class="brand__name">{profile.name}</span>
+    </a>
+
+    <nav class="main-nav" aria-label={t('a11y.mainNav')}>
+      <ul>
+        {
+          stations.map((s) => (
+            <li>
+              <a href={`#${s.id}`} data-goto={s.id} data-nav={s.id}>
+                {s.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="header-tools">
+      <ul class="lang-switch" aria-label={t('a11y.languages')}>
+        {
+          LOCALES.map((l) => (
+            <li>
+              <a
+                href={localePath(l, path)}
+                hreflang={l}
+                lang={l}
+                title={LOCALE_NAME[l]}
+                aria-current={l === lang ? 'page' : undefined}
+                data-lang-link
+              >
+                {LOCALE_LABEL[l]}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <button
+        class="btn btn--small view-toggle"
+        type="button"
+        data-view-toggle
+        aria-pressed="false"
+      >
+        <span class="view-toggle__full" title={t('view.quickHint')}>{t('view.quick')}</span>
+        <span class="view-toggle__flat" title={t('view.immersiveHint')}>{t('view.immersive')}</span>
+      </button>
+      <a class="btn btn--small btn--primary" href={SITE.cv} download>{t('cta.cvShort')}</a>
+      <details class="mobile-menu">
+        <summary class="btn btn--small" aria-label={t('a11y.mainNav')}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"
+            ><path d="M4 7h16M4 12h16M4 17h16"></path></svg
+          >
+        </summary>
+        <div class="mobile-menu__panel">
+          <ul>
+            {
+              stations.map((s) => (
+                <li>
+                  <a href={`#${s.id}`} data-goto={s.id}>
+                    {s.label}
+                  </a>
+                </li>
+              ))
+            }
+            <li>
+              <button type="button" data-view-toggle class="view-toggle">
+                <span class="view-toggle__full">{t('view.quick')}</span>
+                <span class="view-toggle__flat">{t('view.immersive')}</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>

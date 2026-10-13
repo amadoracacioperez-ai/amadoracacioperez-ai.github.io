@@ -1,0 +1,49 @@
+---
+import Frame from '@/components/Frame.astro';
+import Station from '@/components/Station.astro';
+import ProjectCard from '@/components/ui/ProjectCard.astro';
+import type { Locale } from '@/config/site';
+import { PROJECT_GROUPS, type Project } from '@/lib/content';
+import type { UiKey } from '@/i18n/ui';
+import { useTranslations } from '@/i18n/utils';
+
+interface Props {
+  lang: Locale;
+  number: string;
+  projects: Project[];
+}
+const { lang, number, projects } = Astro.props;
+const t = useTranslations(lang);
+const label = t('nav.projects');
+const groups = PROJECT_GROUPS.map((g) => ({
+  key: g,
+  title: t(`projects.group.${g}` as UiKey),
+  items: projects.filter((p) => p.data.group === g),
+})).filter((g) => g.items.length > 0);
+---
+
+{
+  groups.length > 0 && (
+    <Station id="projects" label={label}>
+      {groups.map((group, i) => (
+        <Frame
+          stationId="projects"
+          number={number}
+          label={label}
+          title={i === 0 ? t('projects.title') : undefined}
+        >
+          <h3 class="track-head subhead">
+            {group.title} · {group.items.length} {t('projects.count')}
+          </h3>
+          <ul class="projects">
+            {group.items.map((p) => (
+              <li>
+                <ProjectCard lang={lang} project={p} />
+              </li>
+            ))}
+          </ul>
+        </Frame>
+      ))}
+    </Station>
+  )
+}

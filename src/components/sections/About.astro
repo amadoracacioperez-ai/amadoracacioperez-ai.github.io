@@ -1,0 +1,77 @@
+---
+import Frame from '@/components/Frame.astro';
+import Station from '@/components/Station.astro';
+import type { Locale } from '@/config/site';
+import { profile } from '@/data/profile';
+import { tx, useTranslations } from '@/i18n/utils';
+
+interface Props {
+  lang: Locale;
+  number: string;
+  projectCount: number;
+}
+const { lang, number, projectCount } = Astro.props;
+const t = useTranslations(lang);
+const label = t('nav.about');
+
+const stats = [
+  { value: String(profile.languages.length), label: t('stat.languages') },
+  { value: String(profile.countries.length), label: t('stat.countries') },
+  { value: String(projectCount), label: t('stat.projects') },
+];
+---
+
+<Station id="about" label={label}>
+  <Frame stationId="about" number={number} label={label} title={t('about.title')}>
+    <div class="about-grid">
+      <div class="about-bio">
+        {profile.bio.map((p) => <p>{tx(p, lang)}</p>)}
+      </div>
+      <dl class="stats">
+        {
+          stats.map((s) => (
+            <div class="stat card">
+              <dt>{s.label}</dt>
+              <dd>{s.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </Frame>
+
+  <Frame stationId="about" number={number} label={label}>
+    <div class="skills-grid">
+      <div>
+        <h3 class="subhead">{t('about.languages')}</h3>
+        <ul class="lang-list">
+          {
+            profile.languages.map((l) => (
+              <li class="card">
+                <strong>{tx(l.name, lang)}</strong>
+                <span>{tx(l.level, lang)}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <h3 class="subhead">{t('about.skills')}</h3>
+        <div class="skill-groups">
+          {
+            profile.skills.map((g) => (
+              <div class="skill-group card">
+                <h4>{tx(g.group, lang)}</h4>
+                <ul class="chips">
+                  {g.items.map((item) => (
+                    <li class="chip">{tx(item, lang)}</li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Frame>
+</Station>

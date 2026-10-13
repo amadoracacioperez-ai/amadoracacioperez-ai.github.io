@@ -1,0 +1,80 @@
+---
+import Frame from '@/components/Frame.astro';
+import Station from '@/components/Station.astro';
+import type { Locale } from '@/config/site';
+import type { Achievement, Goal } from '@/lib/content';
+import { tx, useTranslations } from '@/i18n/utils';
+
+interface Props {
+  lang: Locale;
+  number: string;
+  achievements: Achievement[];
+  goals: Goal[];
+}
+const { lang, number, achievements, goals } = Astro.props;
+const t = useTranslations(lang);
+const label = t('nav.milestones');
+
+// Pantallas: profesional (+ académico), deporte y próximos objetivos. Las vacías no se pintan.
+const professional = achievements.filter((a) => a.data.track !== 'sports');
+const sports = achievements.filter((a) => a.data.track === 'sports');
+const frames = [
+  { key: 'professional', title: t('milestones.professional'), items: professional },
+  { key: 'sports', title: t('milestones.sports'), items: sports },
+].filter((f) => f.items.length > 0);
+---
+
+{
+  (frames.length > 0 || goals.length > 0) && (
+    <Station id="milestones" label={label}>
+      {frames.map((frame, i) => (
+        <Frame
+          stationId="milestones"
+          number={number}
+          label={label}
+          title={i === 0 ? t('milestones.title') : undefined}
+        >
+          <h3 class="track-head subhead">{frame.title}</h3>
+          <ul class="milestones">
+            {frame.items.map((a) => (
+              <li class="milestone card">
+                {a.data.metric && (
+                  <p class="milestone__metric">
+                    <strong>{a.data.metric}</strong>
+                    {a.data.metricLabel && <span>{tx(a.data.metricLabel, lang)}</span>}
+                  </p>
+                )}
+                <h4>{tx(a.data.title, lang)}</h4>
+                {a.data.detail && <p>{tx(a.data.detail, lang)}</p>}
+                {a.data.period && <p class="milestone__period muted">{a.data.period}</p>}
+              </li>
+            ))}
+          </ul>
+        </Frame>
+      ))}
+      {goals.length > 0 && (
+        <Frame
+          stationId="milestones"
+          number={number}
+          label={label}
+          title={frames.length === 0 ? t('milestones.title') : undefined}
+        >
+          <h3 class="track-head subhead">{t('milestones.goals')}</h3>
+          <ul class="milestones">
+            {goals.map((g) => (
+              <li class="milestone card">
+                {g.data.horizon && (
+                  <p class="milestone__metric">
+                    <strong>{g.data.horizon}</strong>
+                  </p>
+                )}
+                <h4>{tx(g.data.title, lang)}</h4>
+                {g.data.detail && <p>{tx(g.data.detail, lang)}</p>}
+              </li>
+            ))}
+          </ul>
+        </Frame>
+      )}
+    </Station>
+  )
+}

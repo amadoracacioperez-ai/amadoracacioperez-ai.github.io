@@ -1,0 +1,48 @@
+---
+import type { Locale } from '@/config/site';
+import type { Project } from '@/lib/content';
+import type { UiKey } from '@/i18n/ui';
+import { tx, useTranslations } from '@/i18n/utils';
+
+interface Props {
+  lang: Locale;
+  project: Project;
+}
+const { lang, project } = Astro.props;
+const t = useTranslations(lang);
+const p = project.data;
+const name = tx(p.name, lang);
+const monogram = name
+  .replace(/^The\s+/i, '')
+  .split(/\s+/)
+  .slice(0, 2)
+  .map((w) => w[0])
+  .join('')
+  .toUpperCase();
+---
+
+<article class="project card" style={`--p-accent: ${p.accent ?? 'var(--accent)'}`}>
+  <div class="project__cover" aria-hidden="true">
+    <span class="project__status">{t(`projects.status.${p.status}` as UiKey)}</span>
+    <span class="project__monogram">{monogram}</span>
+  </div>
+  <div class="project__body">
+    <h4 class="project__name">{name}</h4>
+    <p class="project__tagline">{tx(p.tagline, lang)}</p>
+    <p class="project__desc">{tx(p.description, lang)}</p>
+    {p.note && <p class="project__note">{tx(p.note, lang)}</p>}
+    <ul class="chips" aria-label="Stack">
+      {p.stack.map((s) => <li class="chip">{s}</li>)}
+    </ul>
+    <div class="project__foot">
+      {
+        p.links.map((l) => (
+          <a class="project__link" href={l.url} target="_blank" rel="noopener noreferrer">
+            {tx(l.label, lang)} ↗
+          </a>
+        ))
+      }
+      {p.privateCode && <span class="project__private">{t('projects.private')}</span>}
+    </div>
+  </div>
+</article>
