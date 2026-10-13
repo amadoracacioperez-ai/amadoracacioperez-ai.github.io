@@ -25,7 +25,7 @@ html[data-theme='sport'] {
 }
 html[data-theme='sport'] .card {
   border-width: 1px 0 0;
-  background: linear-gradient(180deg, rgb(10 10 10 / 0.82), rgb(10 10 10 / 0.6));
+  background: linear-gradient(180deg, rgb(10 10 10 / 0.93), rgb(10 10 10 / 0.82));
 }
 html[data-theme='sport'] .chip {
   border-radius: 0;

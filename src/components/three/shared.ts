@@ -1,6 +1,6 @@
 // Utilidades comunes de las escenas 3D.
 import { useFrame } from '@react-three/fiber';
-import { useEffect, useRef, useSyncExternalStore } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import * as THREE from 'three';
 import { scrollStore, type ScrollState } from '@/lib/scroll-store';
 
@@ -88,8 +88,26 @@ export function makeGlowTexture(size = 128, inner = 'rgba(255,255,255,1)'): THRE
   return tex;
 }
 
+/** true cuando la fuente indicada ya está cargada (para pintar texto en canvas). */
+export function useFontReady(spec: string): boolean {
+  const [ready, setReady] = useState(() => document.fonts?.check(spec) ?? true);
+  useEffect(() => {
+    if (ready || !document.fonts) return;
+    let alive = true;
+    document.fonts
+      .load(spec)
+      .catch(() => undefined)
+      .then(() => alive && setReady(true));
+    return () => {
+      alive = false;
+    };
+  }, [spec, ready]);
+  return ready;
+}
+
 export interface TextTextureOptions {
   font: string; // p. ej. '700 120px "Sora Variable"'
+  fontStretch?: CanvasFontStretch; // p. ej. 'expanded'
   color: string;
   width?: number;
   height?: number;
@@ -112,6 +130,7 @@ export function makeTextTexture(lines: string | string[], o: TextTextureOptions)
     ctx.fillRect(0, 0, c.width, c.height);
   }
   ctx.font = o.font;
+  if (o.fontStretch) ctx.fontStretch = o.fontStretch;
   ctx.textAlign = o.align ?? 'center';
   ctx.textBaseline = 'middle';
   if ('letterSpacing' in ctx && o.letterSpacing) {
