@@ -60,6 +60,23 @@ export default function Experience() {
   const [webgl] = useState(hasWebGL);
   const [quality, setQuality] = useState<Quality>(initialQuality);
   const [ready, setReady] = useState(false);
+  // El 3D arranca cuando la página ya ha cargado y el navegador está libre: el texto aparece
+  // al instante y el hilo principal queda despejado para la primera interacción.
+  const [armed, setArmed] = useState(false);
+
+  useEffect(() => {
+    const idle = (cb: () => void) => {
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(cb, { timeout: 1200 });
+      } else {
+        setTimeout(cb, 200);
+      }
+    };
+    const arm = () => idle(() => setArmed(true));
+    if (document.readyState === 'complete') arm();
+    else window.addEventListener('load', arm, { once: true });
+    return () => window.removeEventListener('load', arm);
+  }, []);
 
   useEffect(() => {
     const onTheme = () => {
@@ -78,7 +95,7 @@ export default function Experience() {
   const Scene = useMemo(() => lazy(SCENES[theme]), [theme]);
   const onReady = useCallback(() => setReady(true), []);
 
-  if (!active || !webgl) return null;
+  if (!active || !webgl || !armed) return null;
 
   return (
     <div className="experience" aria-hidden="true" data-ready={ready ? '' : undefined}>

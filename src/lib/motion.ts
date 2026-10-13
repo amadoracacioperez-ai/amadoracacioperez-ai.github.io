@@ -74,17 +74,23 @@ function stageHeight(): number {
 
 function measure(): void {
   const stationEls = [...document.querySelectorAll<HTMLElement>('[data-station]')];
+  // 1) Escrituras: alturas a cero (una sola invalidación del layout).
   stationEls.forEach((el) => {
     el.style.height = '';
     el.style.marginTop = '';
   });
+  // 2) Lecturas: todas las alturas de una vez (un único cálculo de layout).
   vh = stageHeight();
   const avail = vh - (headerHeight() + FRAME_PAD_TOP) - FRAME_PAD_BOTTOM;
+  const frameEls = stationEls.map((el) => [...el.querySelectorAll<HTMLElement>('[data-frame]')]);
+  const heights = frameEls.map((list) =>
+    list.map((fe) => (fe.querySelector<HTMLElement>('.frame__inner') ?? fe).offsetHeight),
+  );
+
+  // 3) Cálculo de tramos (sin tocar el DOM).
   stations = [];
   frames = [];
-
   stationEls.forEach((el, si) => {
-    const frameEls = [...el.querySelectorAll<HTMLElement>('[data-frame]')];
     const rec: StationRec = {
       el,
       id: el.dataset.station ?? '',
@@ -94,18 +100,16 @@ function measure(): void {
       frames: [],
     };
     let offset = 0;
-    frameEls.forEach((fe, fi) => {
-      const inner = fe.querySelector<HTMLElement>('.frame__inner') ?? fe;
-      const overflow = Math.max(0, Math.ceil(inner.offsetHeight - avail));
-      fe.classList.toggle('frame--tall', overflow > 0);
+    frameEls[si].forEach((fe, fi) => {
+      const overflow = Math.max(0, Math.ceil(heights[si][fi] - avail));
       const first = si === 0 && fi === 0 && fe.hasAttribute('data-start-visible');
-      const last = si === stationEls.length - 1 && fi === frameEls.length - 1;
+      const last = si === stationEls.length - 1 && fi === frameEls[si].length - 1;
       const enter = first ? 0 : ENTER * vh;
       const hold = HOLD * vh + overflow;
       const exit = last ? 0 : EXIT * vh;
-      const rec2: FrameRec = {
+      const f: FrameRec = {
         el: fe,
-        inner,
+        inner: fe.querySelector<HTMLElement>('.frame__inner') ?? fe,
         station: si,
         index: frames.length,
         start: offset,
@@ -118,16 +122,24 @@ function measure(): void {
         center: 0,
         key: '',
       };
-      offset += rec2.len;
-      rec.frames.push(rec2);
-      frames.push(rec2);
+      offset += f.len;
+      rec.frames.push(f);
+      frames.push(f);
     });
     rec.sticky = offset;
-    el.style.height = `${Math.round(offset + vh)}px`;
-    if (si > 0) el.style.marginTop = `${Math.round(-OVERLAP * vh)}px`;
     stations.push(rec);
   });
 
+  // 4) Escrituras: clases y alturas.
+  for (const rec of stations) {
+    for (const f of rec.frames) f.el.classList.toggle('frame--tall', f.overflow > 0);
+    rec.el.style.height = `${Math.round(rec.sticky + vh)}px`;
+  }
+  stations.forEach((rec, si) => {
+    if (si > 0) rec.el.style.marginTop = `${Math.round(-OVERLAP * vh)}px`;
+  });
+
+  // 5) Lecturas: posiciones finales.
   const sy = window.scrollY;
   for (const rec of stations) {
     rec.top = rec.el.getBoundingClientRect().top + sy;
@@ -329,10 +341,17 @@ function onClick(e: MouseEvent): void {
     goTo(id);
     const url = id === 'top' || id === 'hero' ? location.pathname + location.search : `#${id}`;
     history.replaceState(null, '', url);
-  } else if (id === 'top') {
+  } else {
+    // Maqueta plana: desplazamiento suave nativo (instantáneo con movimiento reducido).
     e.preventDefault();
-    window.scrollTo({ top: 0 });
-    history.replaceState(null, '', location.pathname + location.search);
+    const behavior: ScrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? 'auto'
+      : 'smooth';
+    const target = id === 'top' || id === 'hero' ? null : document.getElementById(id);
+    if (target) target.scrollIntoView({ behavior });
+    else window.scrollTo({ top: 0, behavior });
+    const url = target ? `#${id}` : location.pathname + location.search;
+    history.replaceState(null, '', url);
   }
 }
 
@@ -444,6 +463,19 @@ export function setMotion(mode: 'full' | 'flat'): void {
   window.dispatchEvent(new CustomEvent('aa:motion', { detail: { mode } }));
 }
 
+// Si la página se abrió con #seccion, el navegador puede mover el scroll durante la carga
+// (ancla nativa). Hasta que la persona interactúe, se vuelve a colocar en la sección.
+let initialHash = location.hash.slice(1);
+let userInteracted = false;
+['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach((type) =>
+  window.addEventListener(type, () => (userInteracted = true), { once: true, passive: true }),
+);
+
+function settleOnHash(): void {
+  if (!enabled || userInteracted || !initialHash) return;
+  if (stations.some((s) => s.id === initialHash)) goTo(initialHash, true);
+}
+
 function init(): void {
   document.addEventListener('click', onClick);
   document.addEventListener('focusin', onFocusIn);
@@ -460,8 +492,26 @@ function init(): void {
   });
   if (wantsFull()) {
     enable();
-    document.fonts?.ready.then(() => requestAnimationFrame(relayout));
-    window.addEventListener('load', () => requestAnimationFrame(relayout), { once: true });
+    document.fonts?.ready.then(() =>
+      requestAnimationFrame(() => {
+        relayout();
+        settleOnHash();
+      }),
+    );
+    window.addEventListener(
+      'load',
+      () =>
+        requestAnimationFrame(() => {
+          relayout();
+          settleOnHash();
+          // Último ajuste por si el ancla nativa llega más tarde.
+          setTimeout(() => {
+            settleOnHash();
+            initialHash = '';
+          }, 400);
+        }),
+      { once: true },
+    );
   }
 }
 

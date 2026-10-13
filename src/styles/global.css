@@ -231,6 +231,10 @@ a {
 .btn:hover {
   border-color: color-mix(in srgb, var(--accent) 70%, transparent);
 }
+html[data-motion-ready] .btn:not(.btn--primary) {
+  background: color-mix(in srgb, var(--bg) 62%, transparent);
+  backdrop-filter: blur(6px);
+}
 .btn--primary {
   background: var(--accent);
   border-color: var(--accent);
@@ -323,7 +327,12 @@ html:not(.js) .view-toggle {
 }
 @media (max-width: 420px) {
   .brand__name {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 }
 
@@ -1323,8 +1332,7 @@ html[data-motion-ready] .station--hero .frame {
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html:not([data-motion-ready]) {
-    scroll-behavior: smooth;
-  }
+/* Con el motor 3D, el scroll lo controla Lenis: sin anclaje automático del navegador. */
+html[data-motion-ready] {
+  overflow-anchor: none;
 }
