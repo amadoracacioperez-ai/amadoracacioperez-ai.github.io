@@ -247,13 +247,22 @@ function makeNebulaTexture(seed: number): THREE.CanvasTexture {
   for (let i = 0; i < 9; i++) {
     const x = size * (0.3 + rnd() * 0.4);
     const y = size * (0.3 + rnd() * 0.4);
-    const r = size * (0.18 + rnd() * 0.32);
+    // El radio nunca pasa del borde de la textura (si no, se ve el borde recto del sprite).
+    const r = Math.min(size * (0.18 + rnd() * 0.32), x, y, size - x, size - y);
     const g = ctx.createRadialGradient(x, y, 0, x, y, r);
     g.addColorStop(0, `rgba(255,255,255,${0.22 + rnd() * 0.2})`);
     g.addColorStop(1, 'rgba(255,255,255,0)');
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, size, size);
   }
+  // Máscara radial final: bordes siempre transparentes.
+  ctx.globalCompositeOperation = 'destination-in';
+  const mask = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+  mask.addColorStop(0, 'rgba(0,0,0,1)');
+  mask.addColorStop(0.7, 'rgba(0,0,0,0.6)');
+  mask.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = mask;
+  ctx.fillRect(0, 0, size, size);
   const tex = new THREE.CanvasTexture(c);
   tex.colorSpace = THREE.SRGBColorSpace;
   return tex;
