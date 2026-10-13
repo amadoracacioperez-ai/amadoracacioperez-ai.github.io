@@ -8,8 +8,9 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
 - **Primera versión completa**: las 5 escenas 3D, 3 idiomas, el contenido verificado, SEO y la
   verificación. El repositorio está en GitHub:
   https://github.com/amadoracacioperez-ai/amadoracacioperez-ai.github.io
-- **Publicación:** ver "Despliegue" más abajo (rama `gh-pages` provisional hasta activar GitHub
-  Actions).
+- **Publicada en https://amadoracacioperez-ai.github.io**. Se sirve desde la rama `gh-pages`
+  (despliegue a mano) hasta activar GitHub Actions; ver "Despliegue". Las 21 pruebas de comportamiento
+  pasan también en la web en vivo.
 - **Siguiente paso:**
   1. Amador elige estilo en `https://amadoracacioperez-ai.github.io/?preview`.
   2. Amador pasa sus logros deportivos y sus objetivos.
@@ -70,7 +71,7 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
      de SEO;
    - Lighthouse en móvil: 86 de rendimiento y 100 en las otras tres.
 8. [~] **GitHub:**
-   - [x] el repositorio está creado y el código subido;
+   - [x] el repositorio está creado, el código subido y la web publicada (rama `gh-pages`);
    - [ ] queda pendiente activar el despliegue con Actions (ver abajo).
 
 ## Despliegue
@@ -95,9 +96,15 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
   4. Se borra la rama `gh-pages`, si se quiere.
   5. Se vuelve a dejar activa la cuenta de la agencia con
      `gh auth switch -u xylagenciamarketingdeportivo-prog`, si Amador la usa.
-- **Cuentas de `gh`:** la activa suele ser la de la agencia. En los comandos se usa
-  `GH_TOKEN=$(gh auth token -u amadoracacioperez-ai)`. El remote lleva el usuario en la URL, así que
-  git usa la cuenta personal.
+- **Cuentas de `gh`:** la activa suele ser la de la agencia y no se ha cambiado.
+  - En los comandos `gh` se usa `GH_TOKEN=$(gh auth token -u amadoracacioperez-ai)`.
+  - El ayudante de credenciales de `gh` solo responde con la cuenta **activa**. Para hacer
+    `git push` sin cambiarla, se pasa un ayudante de un solo uso:
+    ```bash
+    git -c credential.helper= -c 'credential.helper=!f() { test "$1" = get && echo "username=amadoracacioperez-ai" && echo "password=$(gh auth token -h github.com -u amadoracacioperez-ai)"; }; f' push origin main
+    ```
+  - Si la cuenta personal está activa (`gh auth switch -u amadoracacioperez-ai`), basta con
+    `git push`.
 
 ## Pendiente de Amador
 
@@ -146,3 +153,9 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
     instalado: `shots.mjs` y `verify.mjs`), con el gancho `window.__aaMotion`
     (`centers`, `scrollToY`, `goTo`).
   - Repo creado en GitHub y código subido.
+  - Pages desde `gh-pages`. El primer build automático desde `main` falló, como era de esperar (Jekyll
+    sobre el código fuente); se cambió la fuente a `gh-pages`. La web en vivo devuelve 200 en `/`,
+    `/fr/`, `/es/`, CV, OG, sitemap y robots.txt, y 404 en lo demás.
+  - **space:** nebulosas con máscara radial (antes se veía el borde recto del sprite).
+  - Workflow de Actions preparado en la rama local `ci/github-actions`, sin subir (falta el permiso
+    `workflow`).
