@@ -5,7 +5,7 @@
 import { PerformanceMonitor } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { Suspense, lazy, useCallback, useEffect, useMemo, useState, type ComponentType } from 'react';
-import { THEMES, type ThemeId } from '@/config/site';
+import { ACTIVE_THEMES, SITE, type ThemeId } from '@/config/site';
 import type { Quality, SceneProps } from './shared';
 
 type SceneModule = { default: ComponentType<SceneProps> };
@@ -31,7 +31,7 @@ const root = () => document.documentElement;
 
 function readTheme(): ThemeId {
   const t = root().dataset.theme as ThemeId | undefined;
-  return t && (THEMES as readonly string[]).includes(t) ? t : 'space';
+  return t && ACTIVE_THEMES.includes(t) ? t : SITE.defaultTheme;
 }
 
 function readActive(): boolean {

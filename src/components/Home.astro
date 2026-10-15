@@ -10,7 +10,7 @@ import Journey from '@/components/sections/Journey.astro';
 import Milestones from '@/components/sections/Milestones.astro';
 import Projects from '@/components/sections/Projects.astro';
 import Experience from '@/components/three/Experience';
-import type { Locale } from '@/config/site';
+import { ACTIVE_THEMES, type Locale } from '@/config/site';
 import type { UiKey } from '@/i18n/ui';
 import { useTranslations } from '@/i18n/utils';
 import BaseLayout from '@/layouts/BaseLayout.astro';
@@ -58,7 +58,7 @@ const stations = order.map((id) => ({ id, label: t(`nav.${id}` as UiKey) }));
   </main>
   <Footer lang={lang} />
   <StationNav lang={lang} stations={stations} />
-  <ThemePicker lang={lang} />
+  {ACTIVE_THEMES.length > 1 && <ThemePicker lang={lang} />}
   <Experience client:only="react" />
   <script>
     import '@/lib/site-ui';

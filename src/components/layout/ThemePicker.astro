@@ -1,6 +1,6 @@
 ---
-// Selector de estilo visual. Solo se ve con ?preview (html[data-preview]).
-import { THEME_SWATCHES, THEMES, type Locale } from '@/config/site';
+// Selector de estilo visual. Solo se ve con ?preview (html[data-preview]) y con más de un estilo activo.
+import { ACTIVE_THEMES, THEME_SWATCHES, type Locale } from '@/config/site';
 import type { UiKey } from '@/i18n/ui';
 import { useTranslations } from '@/i18n/utils';
 
@@ -22,7 +22,7 @@ const t = useTranslations(lang);
     <p class="theme-picker__hint">{t('theme.hint')}</p>
     <ul class="theme-picker__list">
       {
-        THEMES.map((id, i) => (
+        ACTIVE_THEMES.map((id, i) => (
           <li>
             <button class="theme-picker__btn" type="button" data-theme-choice={id} aria-pressed="false">
               <span class="theme-picker__swatch" aria-hidden="true">

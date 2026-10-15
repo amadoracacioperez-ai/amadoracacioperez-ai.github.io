@@ -1,7 +1,7 @@
 // Interacciones de la interfaz: vista rápida, selector de estilo (?preview), email y enlaces de
 // idioma que conservan la sección actual.
 
-import { THEMES, type ThemeId } from '@/config/site';
+import { ACTIVE_THEMES, type ThemeId } from '@/config/site';
 import { currentStationId, setMotion } from './motion';
 
 const root = document.documentElement;
@@ -68,7 +68,7 @@ window.addEventListener('keydown', (e) => {
   const el = e.target as HTMLElement | null;
   if (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName))) return;
   const n = Number(e.key);
-  if (n >= 1 && n <= THEMES.length) setTheme(THEMES[n - 1]);
+  if (n >= 1 && n <= ACTIVE_THEMES.length) setTheme(ACTIVE_THEMES[n - 1]);
 });
 
 // ---- Email (se monta en el navegador para evitar bots) ---------------------------------------

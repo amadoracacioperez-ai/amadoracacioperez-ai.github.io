@@ -9,7 +9,7 @@ import '@fontsource-variable/jetbrains-mono';
 import '@fontsource-variable/sora';
 import '@/styles/global.css';
 
-import { DEFAULT_LOCALE, LOCALES, SITE, THEME_BG, THEMES, type Locale } from '@/config/site';
+import { ACTIVE_THEMES, DEFAULT_LOCALE, LOCALES, SITE, THEME_BG, type Locale } from '@/config/site';
 import { profile } from '@/data/profile';
 import { OG_LOCALE, localePath, tx, useTranslations } from '@/i18n/utils';
 
@@ -50,11 +50,11 @@ const jsonLd = {
 };
 
 // Script de arranque: aplica estilo, vista previa y modo antes del primer pintado.
-const boot = `(()=>{try{var d=document.documentElement,T=${JSON.stringify(THEMES)},q=new URLSearchParams(location.search),s=localStorage,th=q.get('theme');
+const boot = `(()=>{try{var d=document.documentElement,T=${JSON.stringify(ACTIVE_THEMES)},q=new URLSearchParams(location.search),s=localStorage,th=q.get('theme');
 if(th&&T.indexOf(th)>-1)s.setItem('aa-theme',th);else th=s.getItem('aa-theme');
 if(!th||T.indexOf(th)<0)th=${JSON.stringify(SITE.defaultTheme)};d.dataset.theme=th;
-var pv=q.has('preview');if(pv)sessionStorage.setItem('aa-preview','1');else pv=sessionStorage.getItem('aa-preview')==='1';
-if(pv)d.setAttribute('data-preview','');
+var pv=T.length>1&&q.has('preview');if(pv)sessionStorage.setItem('aa-preview','1');else pv=sessionStorage.getItem('aa-preview')==='1';
+if(pv&&T.length>1)d.setAttribute('data-preview','');
 var v=s.getItem('aa-view'),rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 d.dataset.motion=(v==='quick'||rm)?'flat':'full';}catch(e){document.documentElement.dataset.motion='flat';}
 document.documentElement.classList.add('js');})();`;

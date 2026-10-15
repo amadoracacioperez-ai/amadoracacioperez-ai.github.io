@@ -63,11 +63,15 @@ inglés (por defecto), francés y español. Sirve para adjuntarla a candidaturas
 
 ### Estilos (themes)
 
-- `html[data-theme]` ∈ `space | sport | glass | grid | supercar`. Se elige así:
+- Hay 5 estilos en el código (`space | sport | glass | grid | supercar`), pero **solo se ven los de
+  `ACTIVE_THEMES`** en `src/config/site.ts`. Ahora mismo solo está `space`, por decisión de Amador. Los
+  otros se guardan sin mostrarse.
+- `html[data-theme]` se elige entre los estilos activos así:
   1. `?theme=<id>`;
   2. lo guardado en localStorage;
-  3. `defaultTheme` en `src/config/site.ts`.
-- Con `?preview` aparece el selector flotante para comparar los estilos. Los visitantes normales no lo ven.
+  3. `defaultTheme` en `src/config/site.ts`, que tiene que estar en `ACTIVE_THEMES`.
+- Con `?preview` aparece el selector flotante para comparar estilos, solo si hay más de uno activo. Los
+  visitantes normales no lo ven.
 - Cada estilo tiene sus tokens en `src/styles/themes/<id>.css` y su escena en `src/scenes/<id>/`. El canvas
   se vuelve a montar al cambiar de estilo, así se liberan todos los recursos.
 

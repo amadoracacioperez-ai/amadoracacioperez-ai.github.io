@@ -13,9 +13,9 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
   también en la web en vivo.
 - **2026-10-15: contenido de Amador incorporado** (logros deportivos, cambios en los proyectos y la bio).
   Ver la bitácora.
-- **Siguiente paso:**
-  1. Amador elige estilo en `https://amadoracacioperez-ai.github.io/?preview`.
-  2. Amador responde las dudas de "Pendiente de Amador".
+- **Estilo elegido: `space`** (2026-10-15). Es el único visible. Los otros 4 se guardan en el código sin
+  mostrarse.
+- **Siguiente paso:** Amador responde las dudas de "Pendiente de Amador".
 
 ## Decisiones fijadas (2026-10-13)
 
@@ -25,15 +25,16 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
   URL: https://amadoracacioperez-ai.github.io. El dominio propio llegará más adelante
   ([docs/DOMINIO.md](docs/DOMINIO.md)).
 - **Idiomas:** EN por defecto en `/`, FR en `/fr/` y ES en `/es/`.
-- **Estilos:** hay 5 para que Amador elija uno:
-  - `space` (viaje espacial, el estilo por defecto por ahora);
-  - `sport` (pista de atletismo);
-  - `glass` (cristal y cromo);
-  - `grid` (cyber-grid synthwave);
-  - `supercar` (superdeportivo en una autopista nocturna).
+- **Estilos:** hay 5 en el código. **Amador eligió `space` el 2026-10-15** y es el único activo:
+  - `space` (viaje espacial; **activo**);
+  - `sport` (pista de atletismo; guardado);
+  - `glass` (cristal y cromo; guardado);
+  - `grid` (cyber-grid synthwave; guardado);
+  - `supercar` (superdeportivo en una autopista nocturna; guardado).
 
-  Se comparan con `?preview` (selector flotante; las teclas 1–5 también cambian de estilo). Cuando
-  elija, se cambia `defaultTheme` en `src/config/site.ts`.
+  Los visitantes solo ven los de `ACTIVE_THEMES` en `src/config/site.ts`. `?theme=` y localStorage
+  ignoran los demás, y el selector `?preview` solo aparece si hay más de uno activo. Para volver a
+  comparar estilos, se añaden a esa lista.
 - **Stack:** Astro 7 (estático), React 19 y React Three Fiber 9, drei 10, postprocessing 3, Lenis 1.3,
   Tailwind 4 y TypeScript 6. Las fuentes se alojan en la propia web con Fontsource.
 - **Motor de scroll propio** (`src/lib/motion.ts`), sin GSAP:
@@ -105,17 +106,16 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
 
 ## Pendiente de Amador
 
-1. **Elegir el estilo** en `https://amadoracacioperez-ai.github.io/?preview` (teclas 1–5 o el panel).
-2. **Fichas del maratón y del Ironman:** decir si se quedan en Hitos, ahora que la bio ya no los nombra.
-3. **Datos opcionales del deporte:** el año del Maratón de Madrid, y la carrera y el año del Ironman 70.3
+1. **Fichas del maratón y del Ironman:** decir si se quedan en Hitos, ahora que la bio ya no los nombra.
+2. **Datos opcionales del deporte:** el año del Maratón de Madrid, y la carrera y el año del Ironman 70.3
    (van en `period` de cada ficha). Los **objetivos** siguen sin datos: la sección no aparece. Falta
    saber si se enlaza su Instagram.
-4. **The Million Business Game:** confirmar si se queda. Amador dijo "deja Detox, Ojo y Adultopedia" y no
+3. **The Million Business Game:** confirmar si se queda. Amador dijo "deja Detox, Ojo y Adultopedia" y no
    lo nombró; de momento sigue publicada.
-5. **Adultopedia:** su papel (por ejemplo, cofundador), si quiere que se diga en la ficha.
-6. Revisar los textos: bio, fichas de proyectos y traducciones FR y ES.
+4. **Adultopedia:** su papel (por ejemplo, cofundador), si quiere que se diga en la ficha.
+5. Revisar los textos: bio, fichas de proyectos y traducciones FR y ES.
 
-Resuelto el 2026-10-15: despliegue automático, teléfono en el CV (se deja), foto (no), apps, Technosanic,
+Resuelto el 2026-10-15: estilo (`space`), despliegue automático, teléfono en el CV (se deja), foto (no), apps, Technosanic,
 Olaloom (sin enlace), XPAND (fuera) y logros deportivos.
 
 ## Ideas para después
@@ -177,3 +177,9 @@ Olaloom (sin enlace), XPAND (fuera) y logros deportivos.
     - La primera ejecución (build y deploy) termina bien. La web en vivo devuelve 200 en `/`, `/fr/`,
       `/es/`, CV, OG, sitemap y robots.txt, y 404 en lo demás.
     - Se vuelve a dejar activa la cuenta de `gh` de la agencia.
+  - Estilo: Amador deja `space` como único estilo y quiere guardar los demás sin que se vean.
+    - Nueva lista `ACTIVE_THEMES` en `src/config/site.ts`, que usan el arranque, `Experience.tsx`,
+      `site-ui.ts` y `ThemePicker`. Con un solo estilo no se pinta el selector ni se activa `?preview`.
+    - Prueba en Chrome: con `?theme=grid&preview` y con `grid` guardado en localStorage se ve `space`,
+      no aparece el selector, la tecla 3 no cambia nada y solo se descarga la escena `space`, sin errores.
+    - AGENTS.md y README actualizados.

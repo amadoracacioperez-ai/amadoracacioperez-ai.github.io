@@ -24,9 +24,10 @@ layer. A **quick view** switch, `prefers-reduced-motion` and no-JS visitors all 
 ## Visual themes
 
 There are five themes built on the same content: `space`, `sport`, `glass`, `grid` and `supercar`.
+Only the ones listed in `ACTIVE_THEMES` (`src/config/site.ts`) can be shown; right now that is `space`.
 
-- Open the site with `?preview` to show the theme picker.
-- Use `?theme=<id>` to force one.
+- With more than one active theme, open the site with `?preview` to show the theme picker.
+- Use `?theme=<id>` to force an active theme.
 
 The default theme is set in `src/config/site.ts`.
 
