@@ -1,0 +1,31 @@
+# Fuente: ~/PROYECTOS/CEREBRODIGITAL (README.md, PROGRESS.md: fases 1 y 2a terminadas, app/package.json).
+# Sin el contenido de las notas.
+order: 5
+group: ai
+name:
+  en: Digital brain
+  fr: Cerveau numérique
+  es: Cerebro digital
+tagline:
+  en: A personal knowledge base with a 2D and 3D map of ideas
+  fr: Une base de connaissances personnelle avec une carte des idées en 2D et en 3D
+  es: Una base de conocimiento personal con un mapa de ideas en 2D y en 3D
+description:
+  en: >-
+    Everything I learn (books, courses, articles, videos and podcasts) as linked Markdown notes. I
+    capture and organise them by talking to Claude Code, and a local app of my own turns them into
+    pages with backlinks, topics, lists, a fuzzy ⌘K search and a 2D and 3D map of how ideas connect.
+  fr: >-
+    Tout ce que j'apprends (livres, cours, articles, vidéos et podcasts) sous forme de notes Markdown
+    liées. Je les saisis et les organise en parlant à Claude Code, et une app locale que j'ai
+    développée en fait des pages avec rétroliens, thèmes, listes, une recherche ⌘K tolérante aux
+    fautes et une carte en 2D et en 3D des liens entre les idées.
+  es: >-
+    Todo lo que aprendo (libros, cursos, artículos, vídeos y podcasts) en notas Markdown enlazadas.
+    Las apunto y ordeno hablando con Claude Code, y una app local propia las convierte en páginas con
+    enlaces de vuelta, temas, listas, un buscador ⌘K que tolera erratas y un mapa en 2D y en 3D de
+    cómo se conectan las ideas.
+stack: [React, TypeScript, Vite, Markdown, Claude Code]
+status: in-use
+year: 2026
+accent: '#C084FC'

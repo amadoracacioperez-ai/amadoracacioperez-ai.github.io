@@ -1,0 +1,13 @@
+# Fuente: Amador en el chat (2026-10-15). Falta el año: añadir `period` cuando lo confirme.
+order: 2
+track: sports
+title:
+  en: Madrid Marathon
+  fr: Marathon de Madrid
+  es: Maratón de Madrid
+detail:
+  en: 42.195 km finished in 3 h 29 min.
+  fr: 42,195 km bouclés en 3 h 29.
+  es: 42,195 km terminados en 3 h 29 min.
+metric: '3:29'
+metricLabel: { en: finish time, fr: temps final, es: tiempo final }

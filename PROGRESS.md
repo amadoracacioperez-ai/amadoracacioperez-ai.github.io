@@ -3,7 +3,7 @@
 Archivo de contexto entre chats. **Léelo al empezar y actualízalo al terminar cada tanda.**
 Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apunta a él).
 
-## Estado actual (2026-10-13)
+## Estado actual (2026-10-15)
 
 - **Primera versión completa**: las 5 escenas 3D, 3 idiomas, el contenido verificado, SEO y la
   verificación. El repositorio está en GitHub:
@@ -11,10 +11,12 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
 - **Publicada en https://amadoracacioperez-ai.github.io**. Se sirve desde la rama `gh-pages`
   (despliegue a mano) hasta activar GitHub Actions; ver "Despliegue". Las 21 pruebas de comportamiento
   pasan también en la web en vivo.
+- **2026-10-15: contenido de Amador incorporado** (logros deportivos, cambios en los proyectos y la bio).
+  Ver la bitácora.
 - **Siguiente paso:**
-  1. Amador elige estilo en `https://amadoracacioperez-ai.github.io/?preview`.
-  2. Amador pasa sus logros deportivos y sus objetivos.
-  3. Amador ejecuta el comando del permiso `workflow` para activar el despliegue automático.
+  1. Activar el despliegue automático (permiso `workflow`, ver "Despliegue").
+  2. Amador elige estilo en `https://amadoracacioperez-ai.github.io/?preview`.
+  3. Amador confirma los datos que faltan de los logros deportivos (ver "Pendiente de Amador").
 
 ## Decisiones fijadas (2026-10-13)
 
@@ -41,14 +43,24 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
   - El motor publica `g` (pantalla) y `s` (estación) en `scroll-store.ts`.
 - **El coche de `supercar` está hecho con código** (`src/scenes/supercar/Car.tsx`), sin modelos de
   terceros, así que no hay licencias. Si algún día se quiere un modelo real, tiene que ser CC0 y sin marca.
-- **Portfolio:** 11 proyectos de `~/PROYECTOS`, agrupados así:
-  - **IA:** AURA Email, CVGENERATOR, Generador de fotos IA, Editor de Reels IA y el bot de swing trading;
-  - **Apps y juegos:** Detox, Ojo y The Million Business Game;
-  - **Web y negocio:** XPAND, Technosanic y Olaloom.
+- **Portfolio:** 12 proyectos (actualizado el 2026-10-15), agrupados así:
+  - **IA:** AURA Email, CVGENERATOR, Generador de fotos IA, Editor de Reels IA, Cerebro digital y
+    La pizarra de Warren (analizador de acciones, en desarrollo);
+  - **Apps y juegos:** Adultopedia (la única en la App Store), Detox, Ojo y The Million Business Game;
+  - **Web y negocio:** Technosanic (software de facturación) y Olaloom.
+  - Fuera, por decisión de Amador: XPAND. El bot de swing trading se descartó en el repo WARRENBUFFET
+    y lo sustituye el analizador.
+  - Adultopedia está en `~/Projects/adulting-uncomplicated`. La cuenta de Apple Developer es la de
+    Alejandro Muntañola: la ficha no dice el papel de Amador hasta que lo confirme.
+  - **Olaloom sin enlace a la tienda** (decisión de Amador).
 - **Contenido:** solo datos verificados de `CVGENERATOR/perfil/perfil_maestro.yaml` (las reglas están
-  en AGENTS.md).
+  en AGENTS.md) y lo que Amador confirme en el chat.
+- **Deporte (confirmado por Amador el 2026-10-15):** jugador semiprofesional de baloncesto en la cantera
+  del Real Madrid hasta los 16 años, Maratón de Madrid en 3:29 e Ironman 70.3 en 4 h 56 min. **Se quita
+  la ficha de árbitro** (también de la bio).
 - **CV descargable:** `public/cv/Amador_Acacio_CV_EN.pdf`, copia del CV base en inglés del CVGENERATOR.
-  **Incluye el teléfono.** Amador no se opuso en el plan; hay que volver a confirmarlo con él.
+  **Incluye el teléfono y se deja así** (Amador lo confirmó el 2026-10-15).
+- **Sin foto** (decisión de Amador).
 - **Rojo del estilo sport:** pasa de #C8102E a #E0263F para que el texto pequeño tenga contraste AA.
 
 ## Plan por fases
@@ -109,16 +121,17 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
 ## Pendiente de Amador
 
 1. **Elegir el estilo** en `https://amadoracacioperez-ai.github.io/?preview` (teclas 1–5 o el panel).
-2. **Logros deportivos y objetivos**: deporte, marcas, fechas y competiciones. Saber también si se enlaza
-   su Instagram. Para añadirlos hay plantillas en `src/content/achievements/_TEMPLATE-sports.yaml` y
-   `src/content/goals/_TEMPLATE-goal.yaml`.
-3. Ejecutar el **comando del permiso `workflow`** (ver Despliegue).
-4. **CV con teléfono:** confirmar si se deja público o se genera una versión sin teléfono.
-5. **Foto profesional** (opcional; por ejemplo de `GENERADORFOTOSIA/resultados`).
-6. **Apps publicadas:** nombres y enlaces a las tiendas (las fichas de Detox y Ojo dicen "en
-   desarrollo"). Su papel en **XPAND** y en **Technosanic**. Si se enlaza la tienda **Olaloom**
-   (olaloom.es).
-7. Revisar los textos: bio, fichas de proyectos y traducciones FR y ES.
+2. Autorizar el **permiso `workflow`** (ver Despliegue).
+3. **Datos opcionales del deporte:** el año del Maratón de Madrid, y la carrera y el año del Ironman 70.3
+   (van en `period` de cada ficha). Los **objetivos** siguen sin datos: la sección no aparece. Falta
+   saber si se enlaza su Instagram.
+4. **The Million Business Game:** confirmar si se queda. Amador dijo "deja Detox, Ojo y Adultopedia" y no
+   lo nombró; de momento sigue publicada.
+5. **Adultopedia:** su papel (por ejemplo, cofundador), si quiere que se diga en la ficha.
+6. Revisar los textos: bio, fichas de proyectos y traducciones FR y ES.
+
+Resuelto el 2026-10-15: teléfono en el CV (se deja), foto (no), apps, Technosanic, Olaloom (sin enlace),
+XPAND (fuera) y logros deportivos.
 
 ## Ideas para después
 
@@ -159,3 +172,14 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
   - **space:** nebulosas con máscara radial (antes se veía el borde recto del sprite).
   - Workflow de Actions preparado en la rama local `ci/github-actions`, sin subir (falta el permiso
     `workflow`).
+- **2026-10-15 (contenido de Amador):**
+  - Deporte: fuera la ficha de árbitro. Entran la cantera del Real Madrid (semiprofesional hasta los 16),
+    el Maratón de Madrid (3:29) y el Ironman 70.3 (4 h 56 min). También se cambia la frase de la bio.
+  - Proyectos:
+    - entran Adultopedia, con su enlace a la App Store comprobado en la API de iTunes y adultopedia.app;
+    - entra Cerebro digital;
+    - el bot de swing trading se cambia por La pizarra de Warren;
+    - sale XPAND;
+    - se reordenan los grupos.
+  - `astro check` sin errores y el build correcto. Capturas de Hitos y Proyectos en EN y ES revisadas, sin
+    errores de consola.

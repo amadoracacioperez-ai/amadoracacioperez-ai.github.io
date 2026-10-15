@@ -1,0 +1,13 @@
+# Fuente: Amador en el chat (2026-10-15). Falta la carrera y el año: añadirlos cuando los confirme.
+order: 3
+track: sports
+title:
+  en: Ironman 70.3
+  fr: Ironman 70.3
+  es: Ironman 70.3
+detail:
+  en: Half-distance triathlon (1.9 km swim, 90 km bike, 21.1 km run) finished in 4 h 56 min.
+  fr: Triathlon demi-distance (1,9 km de natation, 90 km de vélo, 21,1 km de course) bouclé en 4 h 56.
+  es: Triatlón de media distancia (1,9 km a nado, 90 km en bici y 21,1 km a pie) terminado en 4 h 56 min.
+metric: '4:56'
+metricLabel: { en: finish time, fr: temps final, es: tiempo final }

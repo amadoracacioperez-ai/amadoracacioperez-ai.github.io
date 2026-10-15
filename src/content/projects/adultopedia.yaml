@@ -1,0 +1,35 @@
+# Fuente: ~/Projects/adulting-uncomplicated (README.md, MIGRATION_PROGRESS.txt, docs/app-store/textos-ficha.md)
+# y la App Store (ficha id6810688746, publicada el 2026-09-25). Sin cifras de descargas.
+order: 1
+group: apps
+name: Adultopedia
+tagline:
+  en: The manual for adult life, on the App Store
+  fr: Le manuel de la vie d'adulte, sur l'App Store
+  es: El manual de la vida adulta, en la App Store
+description:
+  en: >-
+    An app for young people who have just moved out: daily missions instead of endless lists, short
+    guides on cooking, money and the home, and XP, levels and streaks to stay consistent. Shared flats
+    split the chores between flatmates, and Google Calendar events appear next to the day's tasks. In
+    Spanish, English and French.
+  fr: >-
+    Une app pour les jeunes qui viennent de prendre leur indépendance : des missions quotidiennes au
+    lieu de listes sans fin, des guides courts sur la cuisine, l'argent et la maison, et de l'XP, des
+    niveaux et des séries pour rester régulier. La colocation répartit les tâches entre colocataires et
+    les événements de Google Agenda s'affichent à côté des tâches du jour. En espagnol, en anglais et
+    en français.
+  es: >-
+    Una app para gente joven que se acaba de independizar: misiones diarias en lugar de listas
+    infinitas, guías breves de cocina, finanzas y hogar, y experiencia, niveles y rachas para mantener
+    la constancia. El piso compartido reparte las tareas entre convivientes y los eventos de Google
+    Calendar aparecen junto a las tareas del día. En español, inglés y francés.
+stack: [React, TypeScript, Capacitor, Supabase, Tailwind]
+status: live
+year: 2026
+links:
+  - label: App Store
+    url: https://apps.apple.com/app/adultopedia/id6810688746
+  - label: adultopedia.app
+    url: https://adultopedia.app
+accent: '#F59E0B'

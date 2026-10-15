@@ -1,0 +1,38 @@
+# Fuente: ~/PROYECTOS/WARRENBUFFET (README.md, PROGRESS.md: iteración 4, capa de datos; aún no analiza).
+# Sustituye al bot de swing trading, que se descartó en ese mismo repo.
+order: 6
+group: ai
+name:
+  en: Warren's blackboard
+  fr: Le tableau de Warren
+  es: La pizarra de Warren
+tagline:
+  en: A Buffett-style stock analyser for US and European shares
+  fr: Un analyseur d'actions à la Buffett pour les marchés américain et européen
+  es: Un analizador de acciones al estilo Buffett para EE. UU. y Europa
+description:
+  en: >-
+    For each stock on the board it builds a study: business quality, a valuation range, buy limits
+    with a margin of safety, a technical complement and a verdict, explained on a blackboard. Rules
+    decide the verdict; Claude Code researches the qualitative side with cited sources and can lower
+    it, never raise it. Data from the SEC, Yahoo Finance and FRED; the data layer is built.
+  fr: >-
+    Pour chaque action du tableau, il prépare une étude : qualité de l'entreprise, fourchette de
+    valorisation, limites d'achat avec marge de sécurité, complément technique et verdict, expliqués
+    sur un tableau noir. Le verdict est décidé par des règles ; Claude Code recherche la partie
+    qualitative en citant ses sources et peut l'abaisser, jamais le relever. Données de la SEC, de
+    Yahoo Finance et de la FRED ; la couche de données est prête.
+  es: >-
+    Para cada acción del panel prepara un estudio: calidad del negocio, rango de valoración, límites
+    de compra con margen de seguridad, un complemento técnico y un veredicto, explicados en una
+    pizarra. El veredicto lo deciden las reglas; Claude Code investiga la parte cualitativa citando
+    fuentes y puede rebajarlo, nunca subirlo. Datos de la SEC, Yahoo Finance y FRED; la capa de datos
+    ya está hecha.
+note:
+  en: Personal project. Not financial advice. Not affiliated with Warren Buffett or Berkshire Hathaway.
+  fr: Projet personnel. Pas un conseil financier. Sans lien avec Warren Buffett ni Berkshire Hathaway.
+  es: Proyecto personal. No es asesoramiento financiero. Sin relación con Warren Buffett ni con Berkshire Hathaway.
+stack: [Python, pandas, yfinance, Claude Code]
+status: in-progress
+year: 2026
+accent: '#34D399'
