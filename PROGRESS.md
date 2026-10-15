@@ -8,15 +8,14 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
 - **Primera versión completa**: las 5 escenas 3D, 3 idiomas, el contenido verificado, SEO y la
   verificación. El repositorio está en GitHub:
   https://github.com/amadoracacioperez-ai/amadoracacioperez-ai.github.io
-- **Publicada en https://amadoracacioperez-ai.github.io**. Se sirve desde la rama `gh-pages`
-  (despliegue a mano) hasta activar GitHub Actions; ver "Despliegue". Las 21 pruebas de comportamiento
-  pasan también en la web en vivo.
+- **Publicada en https://amadoracacioperez-ai.github.io**. Desde el 2026-10-15 se **despliega sola con
+  GitHub Actions** en cada push a `main` (ver "Despliegue"). Las 21 pruebas de comportamiento pasan
+  también en la web en vivo.
 - **2026-10-15: contenido de Amador incorporado** (logros deportivos, cambios en los proyectos y la bio).
   Ver la bitácora.
 - **Siguiente paso:**
-  1. Activar el despliegue automático (permiso `workflow`, ver "Despliegue").
-  2. Amador elige estilo en `https://amadoracacioperez-ai.github.io/?preview`.
-  3. Amador confirma los datos que faltan de los logros deportivos (ver "Pendiente de Amador").
+  1. Amador elige estilo en `https://amadoracacioperez-ai.github.io/?preview`.
+  2. Amador responde las dudas de "Pendiente de Amador".
 
 ## Decisiones fijadas (2026-10-13)
 
@@ -82,33 +81,19 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
    - Lighthouse en escritorio: 99 de rendimiento, 100 de accesibilidad, 100 de buenas prácticas y 100
      de SEO;
    - Lighthouse en móvil: 86 de rendimiento y 100 en las otras tres.
-8. [~] **GitHub:**
-   - [x] el repositorio está creado, el código subido y la web publicada (rama `gh-pages`);
-   - [ ] queda pendiente activar el despliegue con Actions (ver abajo).
+8. [x] **GitHub:** el repositorio está creado y la web se despliega con Actions en cada push a `main`.
 
 ## Despliegue
 
-- **Ahora (provisional):** la web se sirve desde la rama `gh-pages`, que solo contiene `dist/`.
-  Para volver a publicar a mano:
-  ```bash
-  npm run build
-  S=$(mktemp -d) && cp -R dist/. "$S" && cd "$S" && git init -q -b gh-pages && git add -A \
-    && git commit -qm "Deploy" && git push -f \
-    https://amadoracacioperez-ai@github.com/amadoracacioperez-ai/amadoracacioperez-ai.github.io.git gh-pages
-  ```
-- **Definitivo (GitHub Actions):** el workflow está listo en la rama local `ci/github-actions`
-  (`.github/workflows/deploy.yml`). No se ha subido porque el token de `gh` de la cuenta personal no
-  tiene el permiso `workflow`. Pasos:
-  1. Amador ejecuta una vez en la terminal (se abre el navegador):
-     `gh auth switch -u amadoracacioperez-ai && gh auth refresh -h github.com -s workflow`
-  2. Se integra la rama y se sube:
-     `git merge ci/github-actions && git push origin main`.
-  3. Se cambia Pages a "workflow":
-     `GH_TOKEN=$(gh auth token -u amadoracacioperez-ai) gh api -X PUT repos/amadoracacioperez-ai/amadoracacioperez-ai.github.io/pages -f build_type=workflow`.
-  4. Se borra la rama `gh-pages`, si se quiere.
-  5. Se vuelve a dejar activa la cuenta de la agencia con
-     `gh auth switch -u xylagenciamarketingdeportivo-prog`, si Amador la usa.
-- **Cuentas de `gh`:** la activa suele ser la de la agencia y no se ha cambiado.
+- **GitHub Actions** (`.github/workflows/deploy.yml`, activo desde el 2026-10-15). Cada push a `main`
+  construye la web (`withastro/action`) y la publica en Pages (`build_type=workflow`). También se puede
+  lanzar a mano desde la pestaña Actions. Para seguir una ejecución:
+  `GH_TOKEN=$(gh auth token -u amadoracacioperez-ai) gh run list -R amadoracacioperez-ai/amadoracacioperez-ai.github.io -L 3`.
+- El token de la cuenta personal ya tiene el permiso `workflow`. Se pidió con el flujo de dispositivo de
+  `gh auth refresh`, que exige que la cuenta personal esté activa.
+- La rama `gh-pages` (el despliegue a mano de antes) ya no se usa. Se puede borrar cuando Amador quiera.
+- **Cuentas de `gh`:** la activa suele ser la de la agencia (`xylagenciamarketingdeportivo-prog`). Se
+  vuelve a dejar activa después de cualquier cambio.
   - En los comandos `gh` se usa `GH_TOKEN=$(gh auth token -u amadoracacioperez-ai)`.
   - El ayudante de credenciales de `gh` solo responde con la cuenta **activa**. Para hacer
     `git push` sin cambiarla, se pasa un ayudante de un solo uso:
@@ -121,7 +106,7 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
 ## Pendiente de Amador
 
 1. **Elegir el estilo** en `https://amadoracacioperez-ai.github.io/?preview` (teclas 1–5 o el panel).
-2. Autorizar el **permiso `workflow`** (ver Despliegue).
+2. **Fichas del maratón y del Ironman:** decir si se quedan en Hitos, ahora que la bio ya no los nombra.
 3. **Datos opcionales del deporte:** el año del Maratón de Madrid, y la carrera y el año del Ironman 70.3
    (van en `period` de cada ficha). Los **objetivos** siguen sin datos: la sección no aparece. Falta
    saber si se enlaza su Instagram.
@@ -130,8 +115,8 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
 5. **Adultopedia:** su papel (por ejemplo, cofundador), si quiere que se diga en la ficha.
 6. Revisar los textos: bio, fichas de proyectos y traducciones FR y ES.
 
-Resuelto el 2026-10-15: teléfono en el CV (se deja), foto (no), apps, Technosanic, Olaloom (sin enlace),
-XPAND (fuera) y logros deportivos.
+Resuelto el 2026-10-15: despliegue automático, teléfono en el CV (se deja), foto (no), apps, Technosanic,
+Olaloom (sin enlace), XPAND (fuera) y logros deportivos.
 
 ## Ideas para después
 
@@ -186,3 +171,9 @@ XPAND (fuera) y logros deportivos.
   - Bio: la frase del deporte la redactó Amador. Dice: «jugué al baloncesto como semiprofesional en la
     cantera del Real Madrid hasta los 16 años y ahora soy triatleta amateur y aficionado a cualquier
     deporte de resistencia». Va traducida a EN y FR.
+  - Despliegue automático:
+    - Amador autorizó el permiso `workflow` con el código de dispositivo.
+    - Pages pasa a `build_type=workflow` y se integra `ci/github-actions` en `main`.
+    - La primera ejecución (build y deploy) termina bien. La web en vivo devuelve 200 en `/`, `/fr/`,
+      `/es/`, CV, OG, sitemap y robots.txt, y 404 en lo demás.
+    - Se vuelve a dejar activa la cuenta de `gh` de la agencia.
