@@ -183,3 +183,6 @@ XPAND (fuera) y logros deportivos.
     - se reordenan los grupos.
   - `astro check` sin errores y el build correcto. Capturas de Hitos y Proyectos en EN y ES revisadas, sin
     errores de consola.
+  - Bio: la frase del deporte la redactó Amador. Dice: «jugué al baloncesto como semiprofesional en la
+    cantera del Real Madrid hasta los 16 años y ahora soy triatleta amateur y aficionado a cualquier
+    deporte de resistencia». Va traducida a EN y FR.

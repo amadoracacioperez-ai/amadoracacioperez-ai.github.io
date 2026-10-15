@@ -56,9 +56,9 @@ export const profile = {
       es: 'Antes fui consultor IT en PwC, en proyectos de auditoría informática, riesgos y ciberseguridad, y de análisis de datos. En paralelo, diseño y desarrollo mis propias apps para iOS y Android y herramientas con IA.',
     },
     {
-      en: "I've lived and worked in Madrid and Dublin, and I'm now based in Paris. I work with clients in Spanish, English and French. Sport has always been part of my life: I played semi-professional basketball in the Real Madrid youth academy until I was 16, and I've since run the Madrid Marathon and finished an Ironman 70.3.",
-      fr: "J'ai vécu et travaillé à Madrid et à Dublin, et je vis aujourd'hui à Paris. Je travaille avec mes clients en espagnol, en anglais et en français. Le sport a toujours fait partie de ma vie : j'ai joué au basket-ball en semi-professionnel au centre de formation du Real Madrid jusqu'à 16 ans, puis j'ai couru le marathon de Madrid et terminé un Ironman 70.3.",
-      es: 'He vivido y trabajado en Madrid y Dublín, y ahora vivo en París. Trabajo con clientes en español, inglés y francés. El deporte siempre ha formado parte de mi vida: jugué al baloncesto como semiprofesional en la cantera del Real Madrid hasta los 16 años y, después, he corrido el Maratón de Madrid y he terminado un Ironman 70.3.',
+      en: "I've lived and worked in Madrid and Dublin, and I'm now based in Paris. I work with clients in Spanish, English and French. Sport has always been part of my life: I played semi-professional basketball in the Real Madrid youth academy until I was 16, and I'm now an amateur triathlete and a fan of any endurance sport.",
+      fr: "J'ai vécu et travaillé à Madrid et à Dublin, et je vis aujourd'hui à Paris. Je travaille avec mes clients en espagnol, en anglais et en français. Le sport a toujours fait partie de ma vie : j'ai joué au basket-ball en semi-professionnel au centre de formation du Real Madrid jusqu'à 16 ans, et je suis aujourd'hui triathlète amateur et passionné de tous les sports d'endurance.",
+      es: 'He vivido y trabajado en Madrid y Dublín, y ahora vivo en París. Trabajo con clientes en español, inglés y francés. El deporte siempre ha formado parte de mi vida: jugué al baloncesto como semiprofesional en la cantera del Real Madrid hasta los 16 años y ahora soy triatleta amateur y aficionado a cualquier deporte de resistencia.',
     },
   ] satisfies Localized[],
 
