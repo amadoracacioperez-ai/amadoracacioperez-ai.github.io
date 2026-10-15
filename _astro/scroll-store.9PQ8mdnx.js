@@ -1,0 +1,1 @@
+function e(){let e={active:!1,y:0,progress:0,velocity:0,g:0,s:0,station:0,frameCount:1,stations:[],frameStation:[0],pointer:{x:0,y:0},layoutVersion:0},t=new Set;return{state:e,subscribe(e){return t.add(e),()=>t.delete(e)},notify(){t.forEach(e=>e())}}}var t=`__aaScrollStore`,n=globalThis,r=n[t]??(n[t]=e());export{r as t};
