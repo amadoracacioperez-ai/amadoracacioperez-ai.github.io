@@ -15,7 +15,9 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
   Ver la bitácora.
 - **Estilo elegido: `space`** (2026-10-15). Es el único visible. Los otros 4 se guardan en el código sin
   mostrarse.
-- **Siguiente paso:** Amador responde las dudas de "Pendiente de Amador".
+- **Web terminada** (Amador, 2026-10-15: "dejémosla así"). Se queda tal cual está publicada. Las dudas
+  de "Pendiente de Amador" son opcionales; mientras no diga otra cosa, todo sigue como está: las fichas del
+  maratón y del Ironman, The Million Business Game y Adultopedia sin su papel.
 
 ## Decisiones fijadas (2026-10-13)
 
@@ -104,7 +106,7 @@ Las instrucciones del proyecto están en [AGENTS.md](AGENTS.md) (`CLAUDE.md` apu
   - Si la cuenta personal está activa (`gh auth switch -u amadoracacioperez-ai`), basta con
     `git push`.
 
-## Pendiente de Amador
+## Pendiente de Amador (opcional)
 
 1. **Fichas del maratón y del Ironman:** decir si se quedan en Hitos, ahora que la bio ya no los nombra.
 2. **Datos opcionales del deporte:** el año del Maratón de Madrid, y la carrera y el año del Ironman 70.3
@@ -183,3 +185,4 @@ Olaloom (sin enlace), XPAND (fuera) y logros deportivos.
     - Prueba en Chrome: con `?theme=grid&preview` y con `grid` guardado en localStorage se ve `space`,
       no aparece el selector, la tecla 3 no cambia nada y solo se descarga la escena `space`, sin errores.
     - AGENTS.md y README actualizados.
+  - Amador da la web por terminada y la deja como está.
